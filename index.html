@@ -236,68 +236,36 @@ tbody tr:hover{background:var(--surface2)}
 
 <!-- EXPORT MODAL -->
 <div class="modal-overlay" id="export-modal" onclick="if(event.target===this)closeExportModal()">
-  <div class="modal" style="width:480px">
-    <div class="mh"><div class="mt">⬇ Export Data</div><button class="mc" onclick="closeExportModal()">✕</button></div>
-    <p style="color:var(--text2);font-size:13px;margin-bottom:20px">Export the full role → module → permissions → users connectivity in your preferred format.</p>
+  <div class="modal" style="width:440px">
+    <div class="mh"><div class="mt">⬇ Export Matrix</div><button class="mc" onclick="closeExportModal()">✕</button></div>
+    <p style="color:var(--text2);font-size:13px;margin-bottom:20px">Full matrix — Role × Module × Permissions (Full / View / Create / Edit / Delete).</p>
 
-    <!-- JSON exports -->
-    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);overflow:hidden;margin-bottom:10px">
-      <div style="padding:10px 14px;background:var(--surface3);border-bottom:1px solid var(--border);font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--text3)">JSON</div>
-      <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
-          <div>
-            <div style="font-size:13px;font-weight:500;color:var(--text)">Full Export</div>
-            <div style="font-size:11px;color:var(--text3);margin-top:2px">Roles + modules + permissions + users — complete tree</div>
-          </div>
-          <button class="btn btn-g btn-sm" onclick="exportFullJSON()" style="flex-shrink:0">⬇ full_export.json</button>
+    <!-- JSON -->
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);margin-bottom:10px">
+      <div>
+        <div style="font-size:13px;font-weight:500;color:var(--text);display:flex;align-items:center;gap:8px">
+          <span style="font-family:var(--fm);font-size:10px;padding:2px 8px;border-radius:4px;background:var(--surface3);color:var(--accent2);border:1px solid var(--border2)">JSON</span>
+          matrix_export.json
         </div>
-        <div style="border-top:1px solid var(--border);padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-          <div>
-            <div style="font-size:13px;font-weight:500;color:var(--text)">Roles &amp; Permissions</div>
-            <div style="font-size:11px;color:var(--text3);margin-top:2px">Each role with its assigned modules and CRUD permissions</div>
-          </div>
-          <button class="btn btn-g btn-sm" onclick="exportRolesJSON()" style="flex-shrink:0">⬇ roles_permissions.json</button>
-        </div>
-        <div style="border-top:1px solid var(--border);padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-          <div>
-            <div style="font-size:13px;font-weight:500;color:var(--text)">Users &amp; Access</div>
-            <div style="font-size:11px;color:var(--text3);margin-top:2px">Each user with their role, modules and permissions</div>
-          </div>
-          <button class="btn btn-g btn-sm" onclick="exportUsersJSON()" style="flex-shrink:0">⬇ users_access.json</button>
-        </div>
+        <div style="font-size:11px;color:var(--text3);margin-top:4px">Structured tree: each role → modules → permissions array</div>
       </div>
+      <button class="btn btn-p btn-sm" onclick="exportMatrixJSON()" style="flex-shrink:0">⬇ JSON</button>
     </div>
 
-    <!-- CSV exports -->
-    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);overflow:hidden">
-      <div style="padding:10px 14px;background:var(--surface3);border-bottom:1px solid var(--border);font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--text3)">CSV — Spreadsheet</div>
-      <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
-          <div>
-            <div style="font-size:13px;font-weight:500;color:var(--text)">Permissions Matrix</div>
-            <div style="font-size:11px;color:var(--text3);margin-top:2px">Role × Module × Full/View/Create/Edit/Delete</div>
-          </div>
-          <button class="btn btn-g btn-sm" onclick="exportMatrixCSV()" style="flex-shrink:0">⬇ matrix.csv</button>
+    <!-- CSV -->
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs)">
+      <div>
+        <div style="font-size:13px;font-weight:500;color:var(--text);display:flex;align-items:center;gap:8px">
+          <span style="font-family:var(--fm);font-size:10px;padding:2px 8px;border-radius:4px;background:var(--surface3);color:var(--green);border:1px solid rgba(29,158,117,0.3)">CSV</span>
+          matrix_export.csv
         </div>
-        <div style="border-top:1px solid var(--border);padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-          <div>
-            <div style="font-size:13px;font-weight:500;color:var(--text)">Users Report</div>
-            <div style="font-size:11px;color:var(--text3);margin-top:2px">User · Email · Role · Modules · Permissions · Status</div>
-          </div>
-          <button class="btn btn-g btn-sm" onclick="exportUsersCSV()" style="flex-shrink:0">⬇ users.csv</button>
-        </div>
-        <div style="border-top:1px solid var(--border);padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-          <div>
-            <div style="font-size:13px;font-weight:500;color:var(--text)">Roles Summary</div>
-            <div style="font-size:11px;color:var(--text3);margin-top:2px">Role · Module · Permissions · User Count</div>
-          </div>
-          <button class="btn btn-g btn-sm" onclick="exportRolesCSV()" style="flex-shrink:0">⬇ roles.csv</button>
-        </div>
+        <div style="font-size:11px;color:var(--text3);margin-top:4px">Rows: Role × Module. Columns: Full · View · Create · Edit · Delete</div>
       </div>
+      <button class="btn btn-p btn-sm" onclick="exportMatrixCSV()" style="flex-shrink:0">⬇ CSV</button>
     </div>
 
-    <div style="margin-top:16px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);font-size:11px;color:var(--text3)">
-      📅 Export timestamp: <span id="export-ts" style="font-family:var(--fm);color:var(--text2)"></span>
+    <div style="margin-top:14px;font-size:11px;color:var(--text3);font-family:var(--fm)">
+      📅 <span id="export-ts"></span>
     </div>
     <div class="mf"><button class="btn btn-g" onclick="closeExportModal()">Close</button></div>
   </div>
@@ -714,106 +682,49 @@ function dlFile(content, filename, mime){
   URL.revokeObjectURL(a.href);
 }
 
-// ── JSON: Full export ──
-function exportFullJSON(){
-  const roles = db.catalog.roles.map(r => {
-    const modules = Object.entries(r.modulePerms||{}).map(([mid, perms]) => {
-      const m = db.catalog.modules.find(x => x.id === Number(mid));
-      return { module_id: Number(mid), module_name: m?.name||'', module_key: m?.key||'', permissions: perms };
-    });
-    const users = db.users.users.filter(u => u.roleId === r.id).map(u => ({
-      id: u.id, name: u.name, email: u.email, status: u.status, joined: u.joined
-    }));
-    return { id: r.id, name: r.name, description: r.desc, modules, users };
-  });
+// ── JSON: Role × Module × Permissions matrix ──
+function exportMatrixJSON(){
+  const roles   = db.catalog.roles;
+  const modules = db.catalog.modules;
+  if(!roles.length){ toast('No roles to export.','error'); return; }
 
   const out = {
     exported_at: new Date().toISOString(),
     summary: {
-      total_roles: db.catalog.roles.length,
-      total_modules: db.catalog.modules.length,
-      total_users: db.users.users.length
+      total_roles: roles.length,
+      total_modules: modules.length,
+      total_assignments: roles.reduce((n,r)=>n+Object.keys(r.modulePerms||{}).length, 0)
     },
-    roles,
-    modules: db.catalog.modules,
-    users: db.users.users.map(u => {
-      const role = db.catalog.roles.find(r => r.id === u.roleId);
-      const moduleAccess = role ? Object.entries(role.modulePerms||{}).map(([mid, perms]) => {
-        const m = db.catalog.modules.find(x => x.id === Number(mid));
-        return { module: m?.name||'', permissions: perms };
-      }) : [];
-      return { ...u, role_name: role?.name||'', module_access: moduleAccess };
-    })
-  };
-  dlFile(JSON.stringify(out, null, 2), 'dreambooks_full_export.json', 'application/json');
-  toast('full_export.json downloaded', 'success');
-}
-
-// ── JSON: Roles & Permissions ──
-function exportRolesJSON(){
-  const out = {
-    exported_at: new Date().toISOString(),
-    roles: db.catalog.roles.map(r => ({
-      id: r.id,
-      name: r.name,
-      description: r.desc,
-      module_permissions: Object.entries(r.modulePerms||{}).map(([mid, perms]) => {
-        const m = db.catalog.modules.find(x => x.id === Number(mid));
+    matrix: roles.map(r => ({
+      role: r.name,
+      description: r.desc || '',
+      modules: Object.entries(r.modulePerms||{}).map(([mid, perms]) => {
+        const m = modules.find(x => x.id === Number(mid));
         return {
-          module_id: Number(mid),
-          module_name: m?.name||'',
-          module_key: m?.key||'',
+          module:      m?.name || '',
+          module_key:  m?.key  || '',
           permissions: perms,
-          has_full:   perms.includes('Full'),
-          has_view:   perms.includes('View'),
-          has_create: perms.includes('Create'),
-          has_edit:   perms.includes('Edit'),
-          has_delete: perms.includes('Delete')
+          Full:        perms.includes('Full'),
+          View:        perms.includes('View'),
+          Create:      perms.includes('Create'),
+          Edit:        perms.includes('Edit'),
+          Delete:      perms.includes('Delete')
         };
-      }),
-      user_count: db.users.users.filter(u => u.roleId === r.id).length
+      })
     }))
   };
-  dlFile(JSON.stringify(out, null, 2), 'dreambooks_roles_permissions.json', 'application/json');
-  toast('roles_permissions.json downloaded', 'success');
+
+  dlFile(JSON.stringify(out, null, 2), 'dreambooks_matrix_export.json', 'application/json');
+  toast('matrix_export.json downloaded ✓', 'success');
 }
 
-// ── JSON: Users & Access ──
-function exportUsersJSON(){
-  const out = {
-    exported_at: new Date().toISOString(),
-    users: db.users.users.map(u => {
-      const role = db.catalog.roles.find(r => r.id === u.roleId);
-      const moduleAccess = role ? Object.entries(role.modulePerms||{}).map(([mid, perms]) => {
-        const m = db.catalog.modules.find(x => x.id === Number(mid));
-        return {
-          module_id: Number(mid),
-          module_name: m?.name||'',
-          module_key: m?.key||'',
-          permissions: perms
-        };
-      }) : [];
-      return {
-        id: u.id, name: u.name, email: u.email,
-        status: u.status, joined: u.joined,
-        role_id: u.roleId||null,
-        role_name: role?.name||'',
-        module_access: moduleAccess
-      };
-    })
-  };
-  dlFile(JSON.stringify(out, null, 2), 'dreambooks_users_access.json', 'application/json');
-  toast('users_access.json downloaded', 'success');
-}
-
-// ── CSV: Permissions Matrix (Role × Module × each perm as column) ──
+// ── CSV: Role × Module × Full / View / Create / Edit / Delete ──
 function exportMatrixCSV(){
   const roles   = db.catalog.roles;
   const modules = db.catalog.modules;
-  if(!roles.length||!modules.length){ toast('No data to export.','error'); return; }
+  if(!roles.length){ toast('No roles to export.','error'); return; }
 
-  // Header: Role, Description, Module, Full, View, Create, Edit, Delete
-  const rows = [['Role','Description','Module','Module Key','Full','View','Create','Edit','Delete']];
+  const rows = [['Role', 'Description', 'Module', 'Module Key', 'Full', 'View', 'Create', 'Edit', 'Delete']];
 
   roles.forEach(r => {
     const mids = Object.keys(r.modulePerms||{}).map(Number);
@@ -821,13 +732,13 @@ function exportMatrixCSV(){
       rows.push([r.name, r.desc||'', '—', '—', '', '', '', '', '']);
     } else {
       mids.forEach((mid, i) => {
-        const m   = modules.find(x => x.id === mid);
-        const ps  = new Set(r.modulePerms[mid]||[]);
+        const m  = modules.find(x => x.id === mid);
+        const ps = new Set(r.modulePerms[mid] || []);
         rows.push([
-          i===0 ? r.name : '',          // role name only on first row
-          i===0 ? (r.desc||'') : '',    // desc only on first row
-          m?.name||'',
-          m?.key||'',
+          i === 0 ? r.name    : '',
+          i === 0 ? (r.desc||'') : '',
+          m?.name || '',
+          m?.key  || '',
           ps.has('Full')   ? '✓' : '',
           ps.has('View')   ? '✓' : '',
           ps.has('Create') ? '✓' : '',
@@ -838,63 +749,17 @@ function exportMatrixCSV(){
     }
   });
 
-  dlFile(toCSV(rows), 'dreambooks_matrix.csv', 'text/csv');
-  toast('matrix.csv downloaded', 'success');
-}
-
-// ── CSV: Users report ──
-function exportUsersCSV(){
-  const rows = [['Name','Email','Role','Modules','Permissions Summary','Status','Joined']];
-  db.users.users.forEach(u => {
-    const role = db.catalog.roles.find(r => r.id === u.roleId);
-    const moduleAccess = role ? Object.entries(role.modulePerms||{}).map(([mid, perms]) => {
-      const m = db.catalog.modules.find(x => x.id === Number(mid));
-      return `${m?.name||''}(${perms.join('|')})`;
-    }) : [];
-    rows.push([
-      u.name, u.email,
-      role?.name||'—',
-      moduleAccess.map(x => x.split('(')[0]).join('; ') || '—',
-      moduleAccess.join('; ') || '—',
-      u.status, u.joined
-    ]);
-  });
-  dlFile(toCSV(rows), 'dreambooks_users.csv', 'text/csv');
-  toast('users.csv downloaded', 'success');
-}
-
-// ── CSV: Roles summary ──
-function exportRolesCSV(){
-  const rows = [['Role','Description','Module','Module Key','Permissions','User Count']];
-  db.catalog.roles.forEach(r => {
-    const mids = Object.keys(r.modulePerms||{}).map(Number);
-    const uc   = db.users.users.filter(u => u.roleId === r.id).length;
-    if(!mids.length){
-      rows.push([r.name, r.desc||'', '—', '—', '—', uc]);
-    } else {
-      mids.forEach((mid, i) => {
-        const m  = db.catalog.modules.find(x => x.id === mid);
-        const ps = (r.modulePerms[mid]||[]).join(', ');
-        rows.push([
-          i===0 ? r.name : '',
-          i===0 ? (r.desc||'') : '',
-          m?.name||'', m?.key||'', ps,
-          i===0 ? uc : ''
-        ]);
-      });
-    }
-  });
-  dlFile(toCSV(rows), 'dreambooks_roles.csv', 'text/csv');
-  toast('roles.csv downloaded', 'success');
+  dlFile(toCSV(rows), 'dreambooks_matrix_export.csv', 'text/csv');
+  toast('matrix_export.csv downloaded ✓', 'success');
 }
 
 // ── CSV helper ──
 function toCSV(rows){
   return rows.map(row =>
     row.map(cell => {
-      const s = String(cell??'');
+      const s = String(cell ?? '');
       return s.includes(',') || s.includes('"') || s.includes('\n')
-        ? `"${s.replace(/"/g,'""')}"` : s;
+        ? `"${s.replace(/"/g, '""')}"` : s;
     }).join(',')
   ).join('\r\n');
 }

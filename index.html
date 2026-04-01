@@ -25,7 +25,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:14px;min-height:100vh;line-height:1.6}
 
-/* HEADER */
 header{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:60px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;gap:12px}
 .logo{font-family:var(--font-head);font-size:20px;font-weight:700;letter-spacing:-.5px;display:flex;align-items:center;gap:10px;flex-shrink:0}
 .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
@@ -33,9 +32,11 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 .header-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .badge-admin{background:var(--l0);color:var(--l0t);font-family:var(--font-mono);font-size:10px;padding:3px 10px;border-radius:20px}
 .avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#c084fc);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;flex-shrink:0}
-.storage-badge{font-family:var(--font-mono);font-size:10px;color:var(--green);background:var(--green-soft);border:1px solid rgba(29,158,117,0.3);padding:3px 10px;border-radius:20px;display:flex;align-items:center;gap:5px}
+.sync-badge{font-family:var(--font-mono);font-size:10px;padding:3px 10px;border-radius:20px;display:flex;align-items:center;gap:5px;transition:all .3s}
+.sync-live{color:var(--green);background:var(--green-soft);border:1px solid rgba(29,158,117,0.3)}
+.sync-saving{color:var(--accent2);background:var(--accent-glow);border:1px solid rgba(124,111,247,0.3)}
+.sync-error{color:var(--red);background:var(--red-soft);border:1px solid rgba(226,75,74,0.25)}
 
-/* NAV TABS */
 .nav-tabs{display:flex;gap:4px;padding:16px 28px 0;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:99;overflow-x:auto}
 .tab{padding:10px 18px;border-radius:var(--radius-sm) var(--radius-sm) 0 0;cursor:pointer;font-size:13px;font-weight:500;color:var(--text2);border:1px solid transparent;border-bottom:none;transition:all .18s ease;display:flex;align-items:center;gap:7px;user-select:none;position:relative;bottom:-1px;white-space:nowrap}
 .tab:hover{color:var(--text);background:var(--surface2)}
@@ -43,39 +44,33 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 .tab-count{background:var(--surface3);color:var(--text3);font-family:var(--font-mono);font-size:10px;padding:1px 7px;border-radius:20px;transition:all .18s}
 .tab.active .tab-count{background:var(--accent-glow);color:var(--accent2)}
 
-/* MAIN */
 main{padding:28px;max-width:1400px;margin:0 auto}
 .section{display:none;animation:fadeUp .2s ease}
 .section.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* TOOLBAR */
 .section-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;gap:16px;flex-wrap:wrap}
 .section-title{font-family:var(--font-head);font-size:26px;font-weight:600;letter-spacing:-.5px;line-height:1.2}
 .section-desc{color:var(--text2);font-size:13px;margin-top:3px}
 .section-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 
-/* SEARCH */
 .search-wrap{position:relative}
 .search-input{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 12px 8px 34px;color:var(--text);font-family:var(--font-body);font-size:13px;width:200px;outline:none;transition:border-color .15s,box-shadow .15s}
 .search-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
 .search-input::placeholder{color:var(--text3)}
 .search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:13px;pointer-events:none}
 
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 15px;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all .15s;white-space:nowrap}
 .btn-primary{background:var(--accent);color:#fff}
 .btn-primary:hover{background:var(--accent2);box-shadow:0 0 14px var(--accent-glow)}
 .btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border)}
 .btn-ghost:hover{color:var(--text);border-color:var(--border2);background:var(--surface2)}
-.btn-success{background:var(--green-soft);color:var(--green);border:1px solid rgba(29,158,117,0.3)}
-.btn-success:hover{background:rgba(29,158,117,0.2)}
 .btn-danger{background:var(--red-soft);color:var(--red);border:1px solid rgba(226,75,74,0.25)}
 .btn-danger:hover{background:rgba(226,75,74,0.2)}
 .btn-sm{padding:5px 11px;font-size:12px}
 .btn-icon{padding:6px 8px}
+.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
 
-/* TABLE */
 .table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 table{width:100%;border-collapse:collapse}
 thead{background:var(--surface2)}
@@ -85,7 +80,6 @@ tr:last-child td{border-bottom:none}
 tbody tr{transition:background .1s}
 tbody tr:hover{background:var(--surface2)}
 
-/* PILLS */
 .pill{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-family:var(--font-mono);font-size:10.5px;font-weight:500;white-space:nowrap}
 .pill-l0{background:var(--l0);color:var(--l0t)}
 .pill-l1{background:rgba(83,74,183,0.25);color:var(--l1t);border:1px solid rgba(83,74,183,0.4)}
@@ -96,7 +90,6 @@ tbody tr:hover{background:var(--surface2)}
 .s-active{background:var(--green-soft);color:var(--green);border:1px solid rgba(29,158,117,0.3)}
 .s-inactive{background:var(--red-soft);color:var(--red);border:1px solid rgba(226,75,74,0.25)}
 
-/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center;padding:16px}
 .modal-overlay.open{display:flex}
 .modal{background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:26px;width:500px;max-width:100%;box-shadow:var(--shadow);animation:mIn .18s ease;max-height:90vh;overflow-y:auto}
@@ -113,32 +106,33 @@ tbody tr:hover{background:var(--surface2)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .modal-footer{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;padding-top:16px;border-top:1px solid var(--border)}
 
-/* CONFIRM */
 .confirm-msg{color:var(--text2);font-size:14px;line-height:1.6}
 .confirm-msg b{color:var(--text)}
 
-/* STATS */
 .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:20px}
 .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px}
 .stat-label{font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);margin-bottom:5px}
 .stat-value{font-family:var(--font-head);font-size:26px;font-weight:600;letter-spacing:-1px}
 .stat-sub{font-size:11px;color:var(--text3);margin-top:2px}
 
-/* CHECKBOX GRID */
 .checkbox-grid{display:flex;flex-wrap:wrap;gap:7px}
 .checkbox-item{display:flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 10px;cursor:pointer;transition:all .12s;font-size:12px;color:var(--text2);user-select:none}
 .checkbox-item:hover{border-color:var(--accent);color:var(--text)}
 .checkbox-item input{accent-color:var(--accent)}
 
-/* PERM DOT */
 .perm-dot{display:inline-block;width:8px;height:8px;border-radius:50%}
 
-/* EMPTY */
 .empty-state{padding:50px 24px;text-align:center;color:var(--text3)}
 .empty-icon{font-size:34px;margin-bottom:10px;opacity:.4}
 .empty-title{font-size:14px;font-weight:500;color:var(--text2)}
 
-/* TOAST */
+/* LOADING OVERLAY */
+.loading-screen{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:16px}
+.loading-screen.hidden{display:none}
+.spinner{width:36px;height:36px;border:3px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-family:var(--font-mono);font-size:12px;color:var(--text3)}
+
 #toast-c{position:fixed;bottom:22px;right:22px;z-index:300;display:flex;flex-direction:column;gap:7px;pointer-events:none}
 .toast{background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:11px 15px;display:flex;align-items:center;gap:9px;font-size:13px;min-width:230px;box-shadow:var(--shadow);animation:tIn .18s ease,tOut .2s ease 2.8s forwards;pointer-events:auto}
 @keyframes tIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
@@ -147,16 +141,18 @@ tbody tr:hover{background:var(--surface2)}
 .toast-error{border-left:3px solid var(--red)}
 .toast-info{border-left:3px solid var(--accent)}
 
-/* EXPORT/IMPORT BAR */
-.data-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:20px;flex-wrap:wrap}
-.data-bar-label{font-family:var(--font-mono);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-right:4px}
-
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-track{background:var(--surface)}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 </style>
 </head>
 <body>
+
+<!-- LOADING SCREEN -->
+<div class="loading-screen" id="loading-screen">
+  <div class="spinner"></div>
+  <div class="loading-text">Connecting to JSONBin…</div>
+</div>
 
 <!-- HEADER -->
 <header>
@@ -166,7 +162,7 @@ tbody tr:hover{background:var(--surface2)}
     <span class="logo-sub">Access Control</span>
   </div>
   <div class="header-right">
-    <span class="storage-badge">💾 localStorage</span>
+    <span class="sync-badge sync-live" id="sync-badge">☁ synced</span>
     <span class="badge-admin">L0 · Platform Owner</span>
     <div class="avatar">SA</div>
   </div>
@@ -174,25 +170,13 @@ tbody tr:hover{background:var(--surface2)}
 
 <!-- NAV TABS -->
 <div class="nav-tabs">
-  <div class="tab active" onclick="switchTab('users')" id="tab-users">👤 Users <span class="tab-count" id="cnt-users">0</span></div>
-  <div class="tab" onclick="switchTab('modules')" id="tab-modules">📦 Modules <span class="tab-count" id="cnt-modules">0</span></div>
-  <div class="tab" onclick="switchTab('roles')" id="tab-roles">🎭 Roles <span class="tab-count" id="cnt-roles">0</span></div>
-  <div class="tab" onclick="switchTab('permissions')" id="tab-permissions">🔐 Permissions <span class="tab-count" id="cnt-permissions">0</span></div>
+  <div class="tab active" onclick="switchTab('users')" id="tab-users">👤 Users <span class="tab-count" id="cnt-users">–</span></div>
+  <div class="tab" onclick="switchTab('modules')" id="tab-modules">📦 Modules <span class="tab-count" id="cnt-modules">–</span></div>
+  <div class="tab" onclick="switchTab('roles')" id="tab-roles">🎭 Roles <span class="tab-count" id="cnt-roles">–</span></div>
+  <div class="tab" onclick="switchTab('permissions')" id="tab-permissions">🔐 Permissions <span class="tab-count" id="cnt-permissions">–</span></div>
 </div>
 
 <main>
-
-<!-- DATA BAR -->
-<div class="data-bar">
-  <span class="data-bar-label">Data</span>
-  <button class="btn btn-ghost btn-sm" onclick="exportJSON('users')">⬇ users.json</button>
-  <button class="btn btn-ghost btn-sm" onclick="exportJSON('catalog')">⬇ catalog.json</button>
-  <button class="btn btn-success btn-sm" onclick="triggerImport('users')">⬆ Import users.json</button>
-  <button class="btn btn-success btn-sm" onclick="triggerImport('catalog')">⬆ Import catalog.json</button>
-  <button class="btn btn-danger btn-sm" onclick="confirmResetAll()">↺ Reset to defaults</button>
-  <input type="file" id="import-file" accept=".json" style="display:none" onchange="handleImport(event)"/>
-  <span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;color:var(--text3)" id="last-saved">–</span>
-</div>
 
 <!-- USERS -->
 <div class="section active" id="section-users">
@@ -206,7 +190,7 @@ tbody tr:hover{background:var(--surface2)}
   <div class="stats-row" id="user-stats"></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Level</th><th>Status</th><th>Joined</th><th style="width:100px">Actions</th></tr></thead>
-    <tbody id="users-tbody"></tbody>
+    <tbody id="users-tbody"><tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text3)">Loading…</td></tr></tbody>
   </table></div>
 </div>
 
@@ -222,7 +206,7 @@ tbody tr:hover{background:var(--surface2)}
   <div class="stats-row" id="module-stats"></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Module Name</th><th>Key</th><th>Category</th><th>Min Level</th><th>Status</th><th style="width:100px">Actions</th></tr></thead>
-    <tbody id="modules-tbody"></tbody>
+    <tbody id="modules-tbody"><tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text3)">Loading…</td></tr></tbody>
   </table></div>
 </div>
 
@@ -237,7 +221,7 @@ tbody tr:hover{background:var(--surface2)}
   </div>
   <div class="table-wrap"><table>
     <thead><tr><th>Role Name</th><th>Level</th><th>Description</th><th>Modules</th><th>Users</th><th>Type</th><th style="width:100px">Actions</th></tr></thead>
-    <tbody id="roles-tbody"></tbody>
+    <tbody id="roles-tbody"><tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text3)">Loading…</td></tr></tbody>
   </table></div>
 </div>
 
@@ -252,7 +236,7 @@ tbody tr:hover{background:var(--surface2)}
   </div>
   <div class="table-wrap"><table>
     <thead><tr><th>Permission</th><th>Key</th><th style="text-align:center">L0</th><th style="text-align:center">L1</th><th style="text-align:center">L2</th><th style="text-align:center">L3</th><th style="text-align:center">L4</th><th style="text-align:center">L5</th><th>Category</th><th style="width:100px">Actions</th></tr></thead>
-    <tbody id="permissions-tbody"></tbody>
+    <tbody id="permissions-tbody"><tr><td colspan="10" style="text-align:center;padding:40px;color:var(--text3)">Loading…</td></tr></tbody>
   </table></div>
 </div>
 
@@ -282,6 +266,14 @@ tbody tr:hover{background:var(--surface2)}
 
 <script>
 // ═══════════════════════════════════════
+// JSONBIN CONFIG
+// ═══════════════════════════════════════
+const BIN_USERS   = '69cc98db856a682189ea8abe';
+const BIN_CATALOG = '69cc9902aaba882197b2b2b9';
+const API_KEY     = '$2a$10$QChPf.v5wdalpyeRA6OVLu4xpitQW2oKdEXt6xhHWPy/VoJk7xKfi';
+const BASE_URL    = 'https://api.jsonbin.io/v3/b';
+
+// ═══════════════════════════════════════
 // CONSTANTS
 // ═══════════════════════════════════════
 const LEVELS      = ['L0','L1','L2','L3','L4','L5'];
@@ -291,186 +283,179 @@ const LEVEL_DOTS  = {L0:'#26215C',L1:'#534AB7',L2:'#185FA5',L3:'#0F6E56',L4:'#85
 const MOD_CATS    = ['Accounting','Finance','Sales','Operations','HR','Compliance','Admin','Platform'];
 const PERM_CATS   = ['Platform','Admin','Finance','Compliance','Sales','Operations','HR','Data','Comms'];
 
-const LS_USERS   = 'db_dreambooks_users';
-const LS_CATALOG = 'db_dreambooks_catalog';
-
 // ═══════════════════════════════════════
-// DEFAULT SEED DATA
+// SEED DATA (written to JSONBin on first load if bins are empty)
 // ═══════════════════════════════════════
 const SEED_USERS = {
   _meta:{ nextId:11 },
   users:[
-    {id:1, name:'Arjun Sharma',   email:'arjun@dreambooks.io',   role:'Super Admin',       level:'L0', status:'active',   joined:'2023-01-15'},
-    {id:2, name:'Priya Nair',     email:'priya@dreambooks.io',   role:'Admin',             level:'L1', status:'active',   joined:'2023-03-22'},
-    {id:3, name:'Kiran Mehta',    email:'kiran@dreambooks.io',   role:'Finance Manager',   level:'L2', status:'active',   joined:'2023-06-10'},
-    {id:4, name:'Divya Rajan',    email:'divya@dreambooks.io',   role:'Accountant',        level:'L2', status:'active',   joined:'2023-07-01'},
-    {id:5, name:'Sanjay Pillai',  email:'sanjay@dreambooks.io',  role:'Account Manager',   level:'L3', status:'active',   joined:'2023-09-18'},
-    {id:6, name:'Lakshmi Iyer',   email:'lakshmi@dreambooks.io', role:'Project Manager',   level:'L3', status:'inactive', joined:'2023-10-05'},
-    {id:7, name:'Rahul Verma',    email:'rahul@dreambooks.io',   role:'Finance Executive', level:'L3', status:'active',   joined:'2024-01-12'},
-    {id:8, name:'Ananya Singh',   email:'ananya@dreambooks.io',  role:'Team Member',       level:'L4', status:'active',   joined:'2024-02-28'},
-    {id:9, name:'Vijay Kumar',    email:'vijay@dreambooks.io',   role:'Contractor',        level:'L4', status:'active',   joined:'2024-04-03'},
-    {id:10,name:'Meera Agarwal',  email:'meera@dreambooks.io',   role:'Auditor',           level:'L5', status:'active',   joined:'2024-05-20'}
+    {id:1,name:'Arjun Sharma',   email:'arjun@dreambooks.io',   role:'Super Admin',       level:'L0',status:'active',  joined:'2023-01-15'},
+    {id:2,name:'Priya Nair',     email:'priya@dreambooks.io',   role:'Admin',             level:'L1',status:'active',  joined:'2023-03-22'},
+    {id:3,name:'Kiran Mehta',    email:'kiran@dreambooks.io',   role:'Finance Manager',   level:'L2',status:'active',  joined:'2023-06-10'},
+    {id:4,name:'Divya Rajan',    email:'divya@dreambooks.io',   role:'Accountant',        level:'L2',status:'active',  joined:'2023-07-01'},
+    {id:5,name:'Sanjay Pillai',  email:'sanjay@dreambooks.io',  role:'Account Manager',   level:'L3',status:'active',  joined:'2023-09-18'},
+    {id:6,name:'Lakshmi Iyer',   email:'lakshmi@dreambooks.io', role:'Project Manager',   level:'L3',status:'inactive',joined:'2023-10-05'},
+    {id:7,name:'Rahul Verma',    email:'rahul@dreambooks.io',   role:'Finance Executive', level:'L3',status:'active',  joined:'2024-01-12'},
+    {id:8,name:'Ananya Singh',   email:'ananya@dreambooks.io',  role:'Team Member',       level:'L4',status:'active',  joined:'2024-02-28'},
+    {id:9,name:'Vijay Kumar',    email:'vijay@dreambooks.io',   role:'Contractor',        level:'L4',status:'active',  joined:'2024-04-03'},
+    {id:10,name:'Meera Agarwal', email:'meera@dreambooks.io',   role:'Auditor',           level:'L5',status:'active',  joined:'2024-05-20'}
   ]
 };
 
 const SEED_CATALOG = {
   _meta:{ nextId:{modules:16,roles:11,permissions:14} },
   modules:[
-    {id:1, name:'Chart of Accounts', key:'coa',          category:'Accounting', minLevel:'L2', status:'active'},
-    {id:2, name:'Journal Entries',   key:'journals',     category:'Accounting', minLevel:'L2', status:'active'},
-    {id:3, name:'Invoicing',         key:'invoices',     category:'Sales',      minLevel:'L3', status:'active'},
-    {id:4, name:'Quotations',        key:'quotes',       category:'Sales',      minLevel:'L3', status:'active'},
-    {id:5, name:'Banking',           key:'banking',      category:'Finance',    minLevel:'L2', status:'active'},
-    {id:6, name:'Bill Payments',     key:'bills',        category:'Finance',    minLevel:'L3', status:'active'},
-    {id:7, name:'Projects',          key:'projects',     category:'Operations', minLevel:'L3', status:'active'},
-    {id:8, name:'Timesheets',        key:'timesheets',   category:'HR',         minLevel:'L4', status:'active'},
-    {id:9, name:'Expenses',          key:'expenses',     category:'HR',         minLevel:'L4', status:'active'},
-    {id:10,name:'GST / Tax Filing',  key:'tax',          category:'Compliance', minLevel:'L2', status:'active'},
-    {id:11,name:'Audit Log',         key:'audit',        category:'Compliance', minLevel:'L5', status:'active'},
-    {id:12,name:'User Management',   key:'users',        category:'Admin',      minLevel:'L1', status:'active'},
-    {id:13,name:'Integrations',      key:'integrations', category:'Admin',      minLevel:'L1', status:'active'},
-    {id:14,name:'Billing & Plans',   key:'billing',      category:'Platform',   minLevel:'L0', status:'active'},
-    {id:15,name:'Multi-Org Switch',  key:'multi_org',    category:'Platform',   minLevel:'L0', status:'active'}
+    {id:1,name:'Chart of Accounts',key:'coa',         category:'Accounting', minLevel:'L2',status:'active'},
+    {id:2,name:'Journal Entries',  key:'journals',    category:'Accounting', minLevel:'L2',status:'active'},
+    {id:3,name:'Invoicing',        key:'invoices',    category:'Sales',      minLevel:'L3',status:'active'},
+    {id:4,name:'Quotations',       key:'quotes',      category:'Sales',      minLevel:'L3',status:'active'},
+    {id:5,name:'Banking',          key:'banking',     category:'Finance',    minLevel:'L2',status:'active'},
+    {id:6,name:'Bill Payments',    key:'bills',       category:'Finance',    minLevel:'L3',status:'active'},
+    {id:7,name:'Projects',         key:'projects',    category:'Operations', minLevel:'L3',status:'active'},
+    {id:8,name:'Timesheets',       key:'timesheets',  category:'HR',         minLevel:'L4',status:'active'},
+    {id:9,name:'Expenses',         key:'expenses',    category:'HR',         minLevel:'L4',status:'active'},
+    {id:10,name:'GST / Tax Filing',key:'tax',         category:'Compliance', minLevel:'L2',status:'active'},
+    {id:11,name:'Audit Log',       key:'audit',       category:'Compliance', minLevel:'L5',status:'active'},
+    {id:12,name:'User Management', key:'users',       category:'Admin',      minLevel:'L1',status:'active'},
+    {id:13,name:'Integrations',    key:'integrations',category:'Admin',      minLevel:'L1',status:'active'},
+    {id:14,name:'Billing & Plans', key:'billing',     category:'Platform',   minLevel:'L0',status:'active'},
+    {id:15,name:'Multi-Org Switch',key:'multi_org',   category:'Platform',   minLevel:'L0',status:'active'}
   ],
   roles:[
-    {id:1, name:'Super Admin',      level:'L0', desc:'Full platform · create/delete orgs · billing',  modules:'All',     users:1, type:'System'},
-    {id:2, name:'Admin',            level:'L1', desc:'Full org access · users · roles · settings',    modules:'35+',     users:1, type:'System'},
-    {id:3, name:'Finance Manager',  level:'L2', desc:'Full financial control · approvals · reports',  modules:'28',      users:1, type:'System'},
-    {id:4, name:'Accountant',       level:'L2', desc:'COA · journals · banking · close books',        modules:'22',      users:1, type:'System'},
-    {id:5, name:'Account Manager',  level:'L3', desc:'Customers · invoices · quotes · own records',   modules:'12',      users:1, type:'System'},
-    {id:6, name:'Project Manager',  level:'L3', desc:'Projects · resources · timesheets · own',       modules:'10',      users:1, type:'System'},
-    {id:7, name:'Finance Executive',level:'L3', desc:'Bills · payments · bank imports · tax',         modules:'18',      users:1, type:'System'},
-    {id:8, name:'Team Member',      level:'L4', desc:'Timesheets · own expenses · dashboards',        modules:'4',       users:1, type:'System'},
-    {id:9, name:'Contractor',       level:'L4', desc:'Timesheets · assigned projects · limited',      modules:'2',       users:1, type:'System'},
-    {id:10,name:'Auditor',          level:'L5', desc:'Read-only · all modules · export only',         modules:'35+ (r)', users:1, type:'System'}
+    {id:1,name:'Super Admin',      level:'L0',desc:'Full platform · create/delete orgs · billing',  modules:'All',    users:1,type:'System'},
+    {id:2,name:'Admin',            level:'L1',desc:'Full org access · users · roles · settings',    modules:'35+',    users:1,type:'System'},
+    {id:3,name:'Finance Manager',  level:'L2',desc:'Full financial control · approvals · reports',  modules:'28',     users:1,type:'System'},
+    {id:4,name:'Accountant',       level:'L2',desc:'COA · journals · banking · close books',        modules:'22',     users:1,type:'System'},
+    {id:5,name:'Account Manager',  level:'L3',desc:'Customers · invoices · quotes · own records',   modules:'12',     users:1,type:'System'},
+    {id:6,name:'Project Manager',  level:'L3',desc:'Projects · resources · timesheets · own',       modules:'10',     users:1,type:'System'},
+    {id:7,name:'Finance Executive',level:'L3',desc:'Bills · payments · bank imports · tax',         modules:'18',     users:1,type:'System'},
+    {id:8,name:'Team Member',      level:'L4',desc:'Timesheets · own expenses · dashboards',        modules:'4',      users:1,type:'System'},
+    {id:9,name:'Contractor',       level:'L4',desc:'Timesheets · assigned projects · limited',      modules:'2',      users:1,type:'System'},
+    {id:10,name:'Auditor',         level:'L5',desc:'Read-only · all modules · export only',         modules:'35+ (r)',users:1,type:'System'}
   ],
   permissions:[
-    {id:1, name:'Create / Delete Orgs', key:'org.create_delete',   levels:['L0'],                     category:'Platform',   danger:true},
-    {id:2, name:'Manage Billing',        key:'billing.manage',      levels:['L0'],                     category:'Platform',   danger:true},
-    {id:3, name:'Multi-Org Switch',      key:'org.switch',          levels:['L0'],                     category:'Platform',   danger:false},
-    {id:4, name:'Manage Users & Roles',  key:'users.manage',        levels:['L0','L1'],                category:'Admin',      danger:true},
-    {id:5, name:'Manage Integrations',   key:'integrations.manage', levels:['L0','L1'],                category:'Admin',      danger:false},
-    {id:6, name:'Close / Lock Books',    key:'books.close',         levels:['L0','L1','L2'],           category:'Finance',    danger:true},
-    {id:7, name:'Approve Transactions',  key:'txn.approve',         levels:['L0','L1','L2'],           category:'Finance',    danger:false},
-    {id:8, name:'Void Transactions',     key:'txn.void',            levels:['L0','L1','L2'],           category:'Finance',    danger:true},
-    {id:9, name:'File GST Returns',      key:'gst.file',            levels:['L0','L1','L2'],           category:'Compliance', danger:false},
-    {id:10,name:'Import Data',           key:'data.import',         levels:['L0','L1','L2','L3'],      category:'Data',       danger:false},
-    {id:11,name:'Export Data',           key:'data.export',         levels:['L0','L1','L2','L3','L5'], category:'Data',       danger:false},
-    {id:12,name:'View Audit Log',        key:'audit.view',          levels:['L0','L1','L2','L5'],      category:'Compliance', danger:false},
-    {id:13,name:'Send Emails',           key:'email.send',          levels:['L0','L1','L2','L3'],      category:'Comms',      danger:false}
+    {id:1, name:'Create / Delete Orgs',key:'org.create_delete',  levels:['L0'],                    category:'Platform',  danger:true},
+    {id:2, name:'Manage Billing',       key:'billing.manage',     levels:['L0'],                    category:'Platform',  danger:true},
+    {id:3, name:'Multi-Org Switch',     key:'org.switch',         levels:['L0'],                    category:'Platform',  danger:false},
+    {id:4, name:'Manage Users & Roles', key:'users.manage',       levels:['L0','L1'],               category:'Admin',     danger:true},
+    {id:5, name:'Manage Integrations',  key:'integrations.manage',levels:['L0','L1'],               category:'Admin',     danger:false},
+    {id:6, name:'Close / Lock Books',   key:'books.close',        levels:['L0','L1','L2'],          category:'Finance',   danger:true},
+    {id:7, name:'Approve Transactions', key:'txn.approve',        levels:['L0','L1','L2'],          category:'Finance',   danger:false},
+    {id:8, name:'Void Transactions',    key:'txn.void',           levels:['L0','L1','L2'],          category:'Finance',   danger:true},
+    {id:9, name:'File GST Returns',     key:'gst.file',           levels:['L0','L1','L2'],          category:'Compliance',danger:false},
+    {id:10,name:'Import Data',          key:'data.import',        levels:['L0','L1','L2','L3'],     category:'Data',      danger:false},
+    {id:11,name:'Export Data',          key:'data.export',        levels:['L0','L1','L2','L3','L5'],category:'Data',      danger:false},
+    {id:12,name:'View Audit Log',       key:'audit.view',         levels:['L0','L1','L2','L5'],     category:'Compliance',danger:false},
+    {id:13,name:'Send Emails',          key:'email.send',         levels:['L0','L1','L2','L3'],     category:'Comms',     danger:false}
   ]
 };
 
 // ═══════════════════════════════════════
-// LOCALSTORAGE PERSISTENCE
+// IN-MEMORY CACHE
 // ═══════════════════════════════════════
-function loadDB() {
+let db = { users: null, catalog: null };
+let currentTab = 'users';
+let editingId = null, editingType = null;
+
+// ═══════════════════════════════════════
+// JSONBIN API
+// ═══════════════════════════════════════
+const headers = {
+  'Content-Type': 'application/json',
+  'X-Master-Key': API_KEY,
+  'X-Bin-Versioning': 'false'   // always overwrite, no version history needed
+};
+
+async function binGet(binId) {
+  const res = await fetch(`${BASE_URL}/${binId}/latest`, { headers });
+  if (!res.ok) throw new Error('Read failed: ' + res.status);
+  const json = await res.json();
+  return json.record;
+}
+
+async function binPut(binId, data) {
+  const res = await fetch(`${BASE_URL}/${binId}`, {
+    method: 'PUT',
+    headers,
+    body: JSON.stringify(data)
+  });
+  if (!res.ok) throw new Error('Write failed: ' + res.status);
+  return res.json();
+}
+
+// ═══════════════════════════════════════
+// SYNC STATUS
+// ═══════════════════════════════════════
+function setSyncStatus(state) {
+  const el = document.getElementById('sync-badge');
+  el.className = 'sync-badge';
+  if (state === 'saving') { el.classList.add('sync-saving'); el.textContent = '↑ saving…'; }
+  else if (state === 'live') { el.classList.add('sync-live');  el.textContent = '☁ synced'; }
+  else if (state === 'error'){ el.classList.add('sync-error'); el.textContent = '✗ sync error'; }
+}
+
+// ═══════════════════════════════════════
+// BOOT — LOAD FROM JSONBIN
+// ═══════════════════════════════════════
+async function boot() {
   try {
-    const u = localStorage.getItem(LS_USERS);
-    const c = localStorage.getItem(LS_CATALOG);
-    return {
-      users:   u ? JSON.parse(u) : JSON.parse(JSON.stringify(SEED_USERS)),
-      catalog: c ? JSON.parse(c) : JSON.parse(JSON.stringify(SEED_CATALOG))
-    };
+    const [usersData, catalogData] = await Promise.all([
+      binGet(BIN_USERS),
+      binGet(BIN_CATALOG)
+    ]);
+
+    // If bins were freshly created and are empty / missing keys, seed them
+    const needsUserSeed   = !usersData || !usersData.users;
+    const needsCatalogSeed = !catalogData || !catalogData.modules;
+
+    db.users   = needsUserSeed   ? SEED_USERS   : usersData;
+    db.catalog = needsCatalogSeed ? SEED_CATALOG : catalogData;
+
+    if (needsUserSeed)    await binPut(BIN_USERS,   db.users);
+    if (needsCatalogSeed) await binPut(BIN_CATALOG, db.catalog);
+
+    document.getElementById('loading-screen').classList.add('hidden');
+    setSyncStatus('live');
+    renderAll();
   } catch(e) {
-    return {
-      users:   JSON.parse(JSON.stringify(SEED_USERS)),
-      catalog: JSON.parse(JSON.stringify(SEED_CATALOG))
-    };
+    document.getElementById('loading-screen').classList.add('hidden');
+    setSyncStatus('error');
+    toast('Could not connect to JSONBin. Check API key or network.', 'error');
+    // fallback to seed data so UI still works
+    db.users   = JSON.parse(JSON.stringify(SEED_USERS));
+    db.catalog = JSON.parse(JSON.stringify(SEED_CATALOG));
+    renderAll();
   }
 }
 
-function saveDB() {
+// ═══════════════════════════════════════
+// SAVE TO JSONBIN
+// ═══════════════════════════════════════
+async function saveUsers() {
+  setSyncStatus('saving');
   try {
-    localStorage.setItem(LS_USERS,   JSON.stringify(db.users));
-    localStorage.setItem(LS_CATALOG, JSON.stringify(db.catalog));
-    const now = new Date();
-    document.getElementById('last-saved').textContent =
-      'Saved ' + now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    await binPut(BIN_USERS, db.users);
+    setSyncStatus('live');
   } catch(e) {
-    toast('localStorage write failed — storage may be full.', 'error');
+    setSyncStatus('error');
+    toast('Sync failed — changes may not be saved.', 'error');
   }
 }
 
-// ═══════════════════════════════════════
-// INIT DB
-// ═══════════════════════════════════════
-const raw = loadDB();
-let db = raw;
-
-// ensure first run seeds localStorage
-if (!localStorage.getItem(LS_USERS))   saveDB();
-
-// ═══════════════════════════════════════
-// EXPORT JSON
-// ═══════════════════════════════════════
-function exportJSON(which) {
-  const data = which === 'users' ? db.users : db.catalog;
-  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = which === 'users' ? 'users.json' : 'catalog.json';
-  a.click();
-  URL.revokeObjectURL(a.href);
-  toast(`${which === 'users' ? 'users.json' : 'catalog.json'} downloaded.`, 'success');
-}
-
-// ═══════════════════════════════════════
-// IMPORT JSON
-// ═══════════════════════════════════════
-let _importTarget = null;
-function triggerImport(which) {
-  _importTarget = which;
-  const fi = document.getElementById('import-file');
-  fi.value = '';
-  fi.click();
-}
-
-function handleImport(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    try {
-      const parsed = JSON.parse(ev.target.result);
-      if (_importTarget === 'users') {
-        if (!parsed.users || !Array.isArray(parsed.users)) throw new Error('Missing users array');
-        db.users = parsed;
-      } else {
-        if (!parsed.modules || !parsed.roles || !parsed.permissions) throw new Error('Missing modules/roles/permissions');
-        db.catalog = parsed;
-      }
-      saveDB();
-      renderAll();
-      toast(`${file.name} imported successfully.`, 'success');
-    } catch(err) {
-      toast('Import failed: ' + err.message, 'error');
-    }
-  };
-  reader.readAsText(file);
-}
-
-// ═══════════════════════════════════════
-// RESET
-// ═══════════════════════════════════════
-function confirmResetAll() {
-  showConfirm(
-    'Reset all data to factory defaults? <b>All changes will be lost.</b>',
-    () => {
-      db.users   = JSON.parse(JSON.stringify(SEED_USERS));
-      db.catalog = JSON.parse(JSON.stringify(SEED_CATALOG));
-      saveDB();
-      renderAll();
-      toast('Data reset to defaults.', 'info');
-    },
-    'Reset Everything'
-  );
+async function saveCatalog() {
+  setSyncStatus('saving');
+  try {
+    await binPut(BIN_CATALOG, db.catalog);
+    setSyncStatus('live');
+  } catch(e) {
+    setSyncStatus('error');
+    toast('Sync failed — changes may not be saved.', 'error');
+  }
 }
 
 // ═══════════════════════════════════════
 // TABS
 // ═══════════════════════════════════════
-let currentTab = 'users';
 function switchTab(name) {
   currentTab = name;
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -481,10 +466,7 @@ function switchTab(name) {
 }
 
 function renderAll() {
-  renderSection('users');
-  renderSection('modules');
-  renderSection('roles');
-  renderSection('permissions');
+  ['users','modules','roles','permissions'].forEach(renderSection);
   updateCounts();
 }
 
@@ -502,21 +484,23 @@ function renderSection(name) {
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
 function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
 function lvPill(lv){ return `<span class="pill ${LEVEL_CLS[lv]||''}">${lv} <span style="font-weight:400;opacity:.7">${LEVEL_NAMES[lv]||''}</span></span>`; }
-function empty(cols,icon,label){ return `<tr><td colspan="${cols}"><div class="empty-state"><div class="empty-icon">${icon}</div><div class="empty-title">${label}</div></div></td></tr>`; }
+function emptyRow(cols,icon,label){ return `<tr><td colspan="${cols}"><div class="empty-state"><div class="empty-icon">${icon}</div><div class="empty-title">${label}</div></div></td></tr>`; }
 function actBtns(type,id,name,locked=false){
   const del = locked
     ? `<button class="btn btn-danger btn-sm btn-icon" onclick="toast('System roles cannot be deleted.','error')" title="Protected">🔒</button>`
     : `<button class="btn btn-danger btn-sm btn-icon" onclick="confirmDelete('${type}',${id},'${esc(name)}')" title="Delete">🗑</button>`;
-  return `<div style="display:flex;gap:5px"><button class="btn btn-ghost btn-sm btn-icon" onclick="editRecord('${type}',${id})" title="Edit">✏️</button>${del}</div>`;
+  return `<div style="display:flex;gap:5px">
+    <button class="btn btn-ghost btn-sm btn-icon" onclick="editRecord('${type}',${id})" title="Edit">✏️</button>${del}
+  </div>`;
 }
 
 // ═══════════════════════════════════════
 // RENDER USERS
 // ═══════════════════════════════════════
 function renderUsers(){
-  const list = db.users.users;
+  const list = db.users?.users || [];
   const tbody = document.getElementById('users-tbody');
-  if(!list.length){ tbody.innerHTML = empty(7,'👤','No users yet'); return; }
+  if(!list.length){ tbody.innerHTML = emptyRow(7,'👤','No users yet'); return; }
   tbody.innerHTML = list.map(u=>`
     <tr>
       <td><b style="color:var(--text)">${esc(u.name)}</b></td>
@@ -541,9 +525,9 @@ function renderUsers(){
 // RENDER MODULES
 // ═══════════════════════════════════════
 function renderModules(){
-  const list = db.catalog.modules;
+  const list = db.catalog?.modules || [];
   const tbody = document.getElementById('modules-tbody');
-  if(!list.length){ tbody.innerHTML = empty(6,'📦','No modules yet'); return; }
+  if(!list.length){ tbody.innerHTML = emptyRow(6,'📦','No modules yet'); return; }
   tbody.innerHTML = list.map(m=>`
     <tr>
       <td><b style="color:var(--text)">${esc(m.name)}</b></td>
@@ -565,9 +549,9 @@ function renderModules(){
 // RENDER ROLES
 // ═══════════════════════════════════════
 function renderRoles(){
-  const list = db.catalog.roles;
+  const list = db.catalog?.roles || [];
   const tbody = document.getElementById('roles-tbody');
-  if(!list.length){ tbody.innerHTML = empty(7,'🎭','No roles yet'); return; }
+  if(!list.length){ tbody.innerHTML = emptyRow(7,'🎭','No roles yet'); return; }
   tbody.innerHTML = list.map(r=>`
     <tr>
       <td><b style="color:var(--text)">${esc(r.name)}</b></td>
@@ -584,9 +568,9 @@ function renderRoles(){
 // RENDER PERMISSIONS
 // ═══════════════════════════════════════
 function renderPermissions(){
-  const list = db.catalog.permissions;
+  const list = db.catalog?.permissions || [];
   const tbody = document.getElementById('permissions-tbody');
-  if(!list.length){ tbody.innerHTML = empty(10,'🔐','No permissions yet'); return; }
+  if(!list.length){ tbody.innerHTML = emptyRow(10,'🔐','No permissions yet'); return; }
   tbody.innerHTML = list.map(p=>{
     const dots = LEVELS.map(lv=>{
       const on = p.levels.includes(lv);
@@ -606,10 +590,10 @@ function renderPermissions(){
 // COUNTS
 // ═══════════════════════════════════════
 function updateCounts(){
-  document.getElementById('cnt-users').textContent       = db.users.users.length;
-  document.getElementById('cnt-modules').textContent     = db.catalog.modules.length;
-  document.getElementById('cnt-roles').textContent       = db.catalog.roles.length;
-  document.getElementById('cnt-permissions').textContent = db.catalog.permissions.length;
+  document.getElementById('cnt-users').textContent       = db.users?.users?.length       || 0;
+  document.getElementById('cnt-modules').textContent     = db.catalog?.modules?.length   || 0;
+  document.getElementById('cnt-roles').textContent       = db.catalog?.roles?.length     || 0;
+  document.getElementById('cnt-permissions').textContent = db.catalog?.permissions?.length || 0;
 }
 
 // ═══════════════════════════════════════
@@ -624,8 +608,6 @@ function filterTable(tbodyId, q){
 // ═══════════════════════════════════════
 // MODAL FORMS
 // ═══════════════════════════════════════
-let editingId=null, editingType=null;
-
 function openModal(type, data={}){
   editingType=type; editingId=null;
   document.getElementById('modal-body').innerHTML = buildForm(type, data, false);
@@ -651,7 +633,7 @@ function buildForm(type, d={}, editing){
   let fields='';
 
   if(type==='user'){
-    const roleOpts = db.catalog.roles.map(r=>`<option value="${esc(r.name)}"${d.role===r.name?' selected':''}>${esc(r.name)}</option>`).join('');
+    const roleOpts = (db.catalog?.roles||[]).map(r=>`<option value="${esc(r.name)}"${d.role===r.name?' selected':''}>${esc(r.name)}</option>`).join('');
     fields=`
       <div class="form-row">
         <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" id="f-name" value="${esc(d.name||'')}" placeholder="Arjun Sharma"/></div>
@@ -687,9 +669,9 @@ function buildForm(type, d={}, editing){
         <div class="form-group"><label class="form-label">Type</label><select class="form-select" id="f-type">${tyOpts}</select></div>
       </div>`;
   } else if(type==='permission'){
-    const catOpts  = PERM_CATS.map(c=>`<option value="${c}"${d.category===c?' selected':''}>${c}</option>`).join('');
-    const dnrOpts  = `<option value="false"${!d.danger?' selected':''}>No</option><option value="true"${d.danger?' selected':''}>Yes — destructive</option>`;
-    const boxes = LEVELS.map(lv=>`<label class="checkbox-item"><input type="checkbox" value="${lv}"${(d.levels||[]).includes(lv)?' checked':''}/> ${lv}</label>`).join('');
+    const catOpts = PERM_CATS.map(c=>`<option value="${c}"${d.category===c?' selected':''}>${c}</option>`).join('');
+    const dnrOpts = `<option value="false"${!d.danger?' selected':''}>No</option><option value="true"${d.danger?' selected':''}>Yes — destructive</option>`;
+    const boxes   = LEVELS.map(lv=>`<label class="checkbox-item"><input type="checkbox" value="${lv}"${(d.levels||[]).includes(lv)?' checked':''}/> ${lv}</label>`).join('');
     fields=`
       <div class="form-row">
         <div class="form-group"><label class="form-label">Permission Name</label><input class="form-input" id="f-name" value="${esc(d.name||'')}" placeholder="e.g. Approve Transactions"/></div>
@@ -710,14 +692,14 @@ function buildForm(type, d={}, editing){
     ${fields}
     <div class="modal-footer">
       <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" onclick="saveRecord('${type}')">${editing?'Save Changes':'Create'}</button>
+      <button class="btn btn-primary" id="save-btn" onclick="saveRecord('${type}')">${editing?'Save Changes':'Create'}</button>
     </div>`;
 }
 
 // ═══════════════════════════════════════
-// SAVE (CREATE / UPDATE)
+// SAVE RECORD (CREATE / UPDATE)
 // ═══════════════════════════════════════
-function saveRecord(type){
+async function saveRecord(type){
   const g = id => { const el=document.getElementById(id); return el?el.value.trim():''; };
   let item={};
 
@@ -741,29 +723,36 @@ function saveRecord(type){
     item={ name, key, levels, category:g('f-category'), danger:g('f-danger')==='true' };
   }
 
+  // disable button while saving
+  const btn = document.getElementById('save-btn');
+  if(btn){ btn.disabled=true; btn.textContent='Saving…'; }
+
   if(type==='user'){
     if(editingId){
-      const idx=db.users.users.findIndex(x=>x.id===editingId);
-      db.users.users[idx]={ ...db.users.users[idx], ...item };
+      const idx = db.users.users.findIndex(x=>x.id===editingId);
+      db.users.users[idx] = { ...db.users.users[idx], ...item };
     } else {
       item.id = db.users._meta.nextId++;
       db.users.users.push(item);
     }
+    closeModal();
+    renderSection('users');
+    await saveUsers();
   } else {
     const col = type==='module'?'modules':type==='role'?'roles':'permissions';
     if(editingId){
-      const idx=db.catalog[col].findIndex(x=>x.id===editingId);
-      db.catalog[col][idx]={ ...db.catalog[col][idx], ...item };
+      const idx = db.catalog[col].findIndex(x=>x.id===editingId);
+      db.catalog[col][idx] = { ...db.catalog[col][idx], ...item };
     } else {
       item.id = db.catalog._meta.nextId[col]++;
       db.catalog[col].push(item);
     }
+    closeModal();
+    renderSection(type==='module'?'modules':type==='role'?'roles':'permissions');
+    await saveCatalog();
   }
 
-  saveDB();
-  closeModal();
-  renderSection(type==='user'?'users':type==='module'?'modules':type==='role'?'roles':'permissions');
-  toast(`${cap(type)} ${editingId?'updated':'created'} and saved.`, 'success');
+  toast(`${cap(type)} ${editingId?'updated':'created'} — synced to cloud ☁`, 'success');
 }
 
 // ═══════════════════════════════════════
@@ -771,17 +760,19 @@ function saveRecord(type){
 // ═══════════════════════════════════════
 function confirmDelete(type, id, name){
   showConfirm(
-    `Delete <b>${esc(name)}</b>? This cannot be undone.`,
-    () => {
+    `Delete <b>${esc(name)}</b>? This will sync to all devices.`,
+    async () => {
       if(type==='user'){
         db.users.users = db.users.users.filter(x=>x.id!==id);
+        renderSection('users');
+        await saveUsers();
       } else {
         const col = type==='module'?'modules':type==='role'?'roles':'permissions';
         db.catalog[col] = db.catalog[col].filter(x=>x.id!==id);
+        renderSection(type==='module'?'modules':type==='role'?'roles':'permissions');
+        await saveCatalog();
       }
-      saveDB();
-      renderSection(type==='user'?'users':type==='module'?'modules':type==='role'?'roles':'permissions');
-      toast(`${cap(type)} deleted.`, 'success');
+      toast(`${cap(type)} deleted — synced to cloud ☁`, 'success');
     },
     'Delete'
   );
@@ -794,7 +785,7 @@ function showConfirm(msg, onOk, okLabel='Confirm'){
   document.getElementById('confirm-msg-text').innerHTML = msg;
   const btn = document.getElementById('confirm-ok-btn');
   btn.textContent = okLabel;
-  btn.onclick = () => { onOk(); closeConfirm(); };
+  btn.onclick = () => { closeConfirm(); onOk(); };
   document.getElementById('confirm-modal').classList.add('open');
 }
 function closeConfirm(){ document.getElementById('confirm-modal').classList.remove('open'); }
@@ -813,16 +804,15 @@ function closeModal(){
 function toast(msg, type='info'){
   const el = document.createElement('div');
   el.className = `toast toast-${type}`;
-  el.innerHTML = `<span>${{success:'✅',error:'❌',info:'ℹ️'}[type]}</span><span>${msg}</span>`;
+  el.innerHTML = `<span>${{success:'✅',error:'❌',info:'ℹ️'}[type]||'ℹ️'}</span><span>${msg}</span>`;
   document.getElementById('toast-c').appendChild(el);
-  setTimeout(()=>el.remove(), 3100);
+  setTimeout(()=>el.remove(), 3200);
 }
 
 // ═══════════════════════════════════════
 // BOOT
 // ═══════════════════════════════════════
-renderAll();
-document.getElementById('last-saved').textContent = 'Loaded from localStorage';
+boot();
 </script>
 </body>
 </html>

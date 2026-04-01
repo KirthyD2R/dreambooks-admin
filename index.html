@@ -10,137 +10,137 @@
   --bg:#0f0e17;--surface:#16151f;--surface2:#1e1d2a;--surface3:#252436;
   --border:#2e2c42;--border2:#3d3b56;
   --accent:#7c6ff7;--accent2:#a89cf7;--accent-glow:rgba(124,111,247,0.15);
-  --l0:#26215C;--l0t:#CECBF6;--l1:#534AB7;--l1t:#EEEDFE;
-  --l2:#185FA5;--l2t:#E6F1FB;--l3:#0F6E56;--l3t:#E1F5EE;
-  --l4:#854F0B;--l4t:#FAEEDA;--l5:#5F5E5A;--l5t:#F1EFE8;
   --red:#e24b4a;--red-soft:rgba(226,75,74,0.12);
   --green:#1d9e75;--green-soft:rgba(29,158,117,0.12);
   --text:#e8e6f0;--text2:#9997b0;--text3:#5e5c78;
-  --font-head:'Fraunces',Georgia,serif;
-  --font-body:'DM Sans',sans-serif;
-  --font-mono:'DM Mono',monospace;
-  --radius:10px;--radius-sm:6px;
-  --shadow:0 4px 24px rgba(0,0,0,0.4);
+  --fh:'Fraunces',Georgia,serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
+  --r:10px;--rs:6px;--sh:0 4px 24px rgba(0,0,0,0.45);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:14px;min-height:100vh;line-height:1.6}
-
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:14px;min-height:100vh;line-height:1.6}
 header{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:60px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;gap:12px}
-.logo{font-family:var(--font-head);font-size:20px;font-weight:700;letter-spacing:-.5px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo{font-family:var(--fh);font-size:20px;font-weight:700;letter-spacing:-.5px;display:flex;align-items:center;gap:10px}
 .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
-.logo-sub{font-family:var(--font-mono);font-size:10px;color:var(--text3);font-weight:400;letter-spacing:1px;text-transform:uppercase}
-.header-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.badge-admin{background:var(--l0);color:var(--l0t);font-family:var(--font-mono);font-size:10px;padding:3px 10px;border-radius:20px}
-.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#c084fc);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;flex-shrink:0}
-.sync-badge{font-family:var(--font-mono);font-size:10px;padding:3px 10px;border-radius:20px;display:flex;align-items:center;gap:5px;transition:all .3s}
-.sync-live{color:var(--green);background:var(--green-soft);border:1px solid rgba(29,158,117,0.3)}
-.sync-saving{color:var(--accent2);background:var(--accent-glow);border:1px solid rgba(124,111,247,0.3)}
-.sync-error{color:var(--red);background:var(--red-soft);border:1px solid rgba(226,75,74,0.25)}
-
-.nav-tabs{display:flex;gap:4px;padding:16px 28px 0;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:99;overflow-x:auto}
-.tab{padding:10px 18px;border-radius:var(--radius-sm) var(--radius-sm) 0 0;cursor:pointer;font-size:13px;font-weight:500;color:var(--text2);border:1px solid transparent;border-bottom:none;transition:all .18s ease;display:flex;align-items:center;gap:7px;user-select:none;position:relative;bottom:-1px;white-space:nowrap}
-.tab:hover{color:var(--text);background:var(--surface2)}
-.tab.active{color:var(--accent2);background:var(--bg);border-color:var(--border);border-bottom-color:var(--bg)}
-.tab-count{background:var(--surface3);color:var(--text3);font-family:var(--font-mono);font-size:10px;padding:1px 7px;border-radius:20px;transition:all .18s}
+.logo-sub{font-family:var(--fm);font-size:10px;color:var(--text3);font-weight:400;letter-spacing:1px;text-transform:uppercase}
+.hr{display:flex;align-items:center;gap:10px}
+.b-admin{background:#26215C;color:#CECBF6;font-family:var(--fm);font-size:10px;padding:3px 10px;border-radius:20px}
+.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#c084fc);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff}
+.sync{font-family:var(--fm);font-size:10px;padding:3px 10px;border-radius:20px;transition:all .3s}
+.s-live{color:var(--green);background:var(--green-soft);border:1px solid rgba(29,158,117,0.3)}
+.s-save{color:var(--accent2);background:var(--accent-glow);border:1px solid rgba(124,111,247,0.3)}
+.s-err{color:var(--red);background:var(--red-soft);border:1px solid rgba(226,75,74,0.25)}
+.nav-tabs{display:flex;gap:0;padding:0 28px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:99;overflow-x:auto;align-items:center}
+.tab{padding:14px 20px;cursor:pointer;font-size:13px;font-weight:500;color:var(--text3);border-bottom:2px solid transparent;transition:all .18s;display:flex;align-items:center;gap:8px;user-select:none;white-space:nowrap}
+.tab:hover{color:var(--text2);border-bottom-color:var(--border2)}
+.tab.active{color:var(--accent2);border-bottom-color:var(--accent)}
+.tab-count{background:var(--surface3);color:var(--text3);font-family:var(--fm);font-size:10px;padding:1px 7px;border-radius:20px}
 .tab.active .tab-count{background:var(--accent-glow);color:var(--accent2)}
-
+.tab-arrow{color:var(--border2);font-size:16px;padding:0 2px;user-select:none;line-height:1}
 main{padding:28px;max-width:1400px;margin:0 auto}
-.section{display:none;animation:fadeUp .2s ease}
+.section{display:none;animation:fu .2s ease}
 .section.active{display:block}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-.section-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;gap:16px;flex-wrap:wrap}
-.section-title{font-family:var(--font-head);font-size:26px;font-weight:600;letter-spacing:-.5px;line-height:1.2}
-.section-desc{color:var(--text2);font-size:13px;margin-top:3px}
-.section-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-
-.search-wrap{position:relative}
-.search-input{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 12px 8px 34px;color:var(--text);font-family:var(--font-body);font-size:13px;width:200px;outline:none;transition:border-color .15s,box-shadow .15s}
-.search-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
-.search-input::placeholder{color:var(--text3)}
-.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:13px;pointer-events:none}
-
-.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 15px;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all .15s;white-space:nowrap}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:var(--accent2);box-shadow:0 0 14px var(--accent-glow)}
-.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border)}
-.btn-ghost:hover{color:var(--text);border-color:var(--border2);background:var(--surface2)}
-.btn-danger{background:var(--red-soft);color:var(--red);border:1px solid rgba(226,75,74,0.25)}
-.btn-danger:hover{background:rgba(226,75,74,0.2)}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sh{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;gap:16px;flex-wrap:wrap}
+.st{font-family:var(--fh);font-size:26px;font-weight:600;letter-spacing:-.5px;line-height:1.2}
+.sd{color:var(--text2);font-size:13px;margin-top:3px}
+.sa{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sw{position:relative}
+.si{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);padding:8px 12px 8px 34px;color:var(--text);font-family:var(--fb);font-size:13px;width:200px;outline:none;transition:border-color .15s,box-shadow .15s}
+.si:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.si::placeholder{color:var(--text3)}
+.sic{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:13px;pointer-events:none}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 15px;border-radius:var(--rs);font-family:var(--fb);font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all .15s;white-space:nowrap}
+.btn-p{background:var(--accent);color:#fff}
+.btn-p:hover{background:var(--accent2);box-shadow:0 0 14px var(--accent-glow)}
+.btn-g{background:transparent;color:var(--text2);border:1px solid var(--border)}
+.btn-g:hover{color:var(--text);border-color:var(--border2);background:var(--surface2)}
+.btn-d{background:var(--red-soft);color:var(--red);border:1px solid rgba(226,75,74,0.25)}
+.btn-d:hover{background:rgba(226,75,74,0.2)}
 .btn-sm{padding:5px 11px;font-size:12px}
-.btn-icon{padding:6px 8px}
+.btn-ic{padding:6px 8px}
 .btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
-
-.table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.tw{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
 table{width:100%;border-collapse:collapse}
 thead{background:var(--surface2)}
-th{text-align:left;padding:11px 15px;font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--border)}
-td{padding:12px 15px;border-bottom:1px solid var(--border);font-size:13.5px;vertical-align:middle}
+th{text-align:left;padding:11px 15px;font-family:var(--fm);font-size:10px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--border)}
+td{padding:11px 15px;border-bottom:1px solid var(--border);font-size:13.5px;vertical-align:middle}
 tr:last-child td{border-bottom:none}
 tbody tr{transition:background .1s}
 tbody tr:hover{background:var(--surface2)}
-
-.pill{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-family:var(--font-mono);font-size:10.5px;font-weight:500;white-space:nowrap}
-.pill-l0{background:var(--l0);color:var(--l0t)}
-.pill-l1{background:rgba(83,74,183,0.25);color:var(--l1t);border:1px solid rgba(83,74,183,0.4)}
-.pill-l2{background:rgba(24,95,165,0.2);color:var(--l2t);border:1px solid rgba(24,95,165,0.4)}
-.pill-l3{background:rgba(15,110,86,0.2);color:var(--l3t);border:1px solid rgba(15,110,86,0.4)}
-.pill-l4{background:rgba(133,79,11,0.2);color:var(--l4t);border:1px solid rgba(133,79,11,0.4)}
-.pill-l5{background:rgba(95,94,90,0.2);color:var(--l5t);border:1px solid rgba(95,94,90,0.35)}
-.s-active{background:var(--green-soft);color:var(--green);border:1px solid rgba(29,158,117,0.3)}
-.s-inactive{background:var(--red-soft);color:var(--red);border:1px solid rgba(226,75,74,0.25)}
-
+.pill{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-family:var(--fm);font-size:10.5px;font-weight:500;white-space:nowrap}
+.p-on{background:var(--green-soft);color:var(--green);border:1px solid rgba(29,158,117,0.3)}
+.p-off{background:var(--red-soft);color:var(--red);border:1px solid rgba(226,75,74,0.25)}
+.tag{display:inline-flex;align-items:center;background:var(--accent-glow);color:var(--accent2);border:1px solid rgba(124,111,247,0.25);border-radius:6px;font-size:11px;padding:2px 8px;margin:2px;white-space:nowrap;font-family:var(--fm)}
+.tag-wrap{display:flex;flex-wrap:wrap;gap:2px}
+/* perm badges */
+.perm-badges{display:flex;gap:3px;flex-wrap:wrap}
+.pb{font-size:10px;font-family:var(--fm);padding:2px 6px;border-radius:4px;border:1px solid var(--border);color:var(--text3);background:var(--surface2);user-select:none}
+.pb.has{color:#fff;border-color:transparent}
+.pb.has.Full{background:#26215C}
+.pb.has.View{background:#185FA5}
+.pb.has.Create{background:#0F6E56}
+.pb.has.Edit{background:#854F0B}
+.pb.has.Delete{background:#7c1d1d}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin-bottom:20px}
+.sc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px}
+.sl{font-family:var(--fm);font-size:9.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);margin-bottom:5px}
+.sv{font-family:var(--fh);font-size:26px;font-weight:600;letter-spacing:-1px}
+/* modal */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center;padding:16px}
 .modal-overlay.open{display:flex}
-.modal{background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:26px;width:500px;max-width:100%;box-shadow:var(--shadow);animation:mIn .18s ease;max-height:90vh;overflow-y:auto}
-@keyframes mIn{from{opacity:0;transform:scale(.96) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-.modal-title{font-family:var(--font-head);font-size:20px;font-weight:600}
-.modal-close{background:none;border:none;color:var(--text3);cursor:pointer;font-size:20px;padding:2px 6px;border-radius:4px}
-.modal-close:hover{color:var(--text);background:var(--surface2)}
-.form-group{margin-bottom:15px}
-.form-label{display:block;font-size:10.5px;font-weight:500;color:var(--text2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.6px;font-family:var(--font-mono)}
-.form-input,.form-select{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:9px 11px;color:var(--text);font-family:var(--font-body);font-size:13.5px;outline:none;transition:border-color .15s,box-shadow .15s}
-.form-input:focus,.form-select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
-.form-select option{background:var(--surface2);color:var(--text)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.modal-footer{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;padding-top:16px;border-top:1px solid var(--border)}
-
-.confirm-msg{color:var(--text2);font-size:14px;line-height:1.6}
-.confirm-msg b{color:var(--text)}
-
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:20px}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px}
-.stat-label{font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);margin-bottom:5px}
-.stat-value{font-family:var(--font-head);font-size:26px;font-weight:600;letter-spacing:-1px}
-.stat-sub{font-size:11px;color:var(--text3);margin-top:2px}
-
-.checkbox-grid{display:flex;flex-wrap:wrap;gap:7px}
-.checkbox-item{display:flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 10px;cursor:pointer;transition:all .12s;font-size:12px;color:var(--text2);user-select:none}
-.checkbox-item:hover{border-color:var(--accent);color:var(--text)}
-.checkbox-item input{accent-color:var(--accent)}
-
-.perm-dot{display:inline-block;width:8px;height:8px;border-radius:50%}
-
+.modal{background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:26px;width:560px;max-width:100%;box-shadow:var(--sh);animation:mi .18s ease;max-height:90vh;overflow-y:auto}
+.modal-lg{width:740px}
+@keyframes mi{from{opacity:0;transform:scale(.96) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.mh{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.mt{font-family:var(--fh);font-size:20px;font-weight:600}
+.mc{background:none;border:none;color:var(--text3);cursor:pointer;font-size:20px;padding:2px 6px;border-radius:4px}
+.mc:hover{color:var(--text);background:var(--surface2)}
+.fg{margin-bottom:16px}
+.fl{display:block;font-size:10.5px;font-weight:500;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px;font-family:var(--fm)}
+.fi,.fs{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);padding:9px 11px;color:var(--text);font-family:var(--fb);font-size:13.5px;outline:none;transition:border-color .15s,box-shadow .15s}
+.fi:focus,.fs:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.fs option{background:var(--surface2);color:var(--text)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mf{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;padding-top:16px;border-top:1px solid var(--border)}
+/* module assign grid */
+.mac-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;max-height:260px;overflow-y:auto;padding:2px}
+.mac{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);cursor:pointer;transition:all .15s;user-select:none}
+.mac:hover{border-color:var(--accent)}
+.mac.sel{border-color:var(--accent);background:var(--accent-glow)}
+.mac input{accent-color:var(--accent);width:15px;height:15px;flex-shrink:0;margin-top:2px;cursor:pointer}
+.mac-n{font-size:12.5px;color:var(--text);line-height:1.3}
+.mac-k{font-size:10px;color:var(--text3);font-family:var(--fm)}
+/* perm editor */
+.pe-module{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);margin-bottom:6px;overflow:hidden}
+.pe-head{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:var(--surface3)}
+.pe-name{font-size:13px;font-weight:500;color:var(--text)}
+.pe-perms{display:flex;gap:6px;padding:10px 14px;flex-wrap:wrap}
+.pp{font-size:12px;font-family:var(--fm);padding:5px 14px;border-radius:var(--rs);border:1px solid var(--border);background:var(--surface3);cursor:pointer;transition:all .15s;user-select:none;color:var(--text3)}
+.pp:hover{border-color:var(--accent2);color:var(--text2)}
+.pp.on{color:#fff;border-color:transparent}
+.pp.on.Full{background:#26215C}
+.pp.on.View{background:#185FA5}
+.pp.on.Create{background:#0F6E56}
+.pp.on.Edit{background:#854F0B}
+.pp.on.Delete{background:#7c1d1d}
+/* empty */
 .empty-state{padding:50px 24px;text-align:center;color:var(--text3)}
-.empty-icon{font-size:34px;margin-bottom:10px;opacity:.4}
-.empty-title{font-size:14px;font-weight:500;color:var(--text2)}
-
-/* LOADING OVERLAY */
-.loading-screen{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:16px}
-.loading-screen.hidden{display:none}
+.ei{font-size:34px;margin-bottom:10px;opacity:.4}
+.en{font-size:14px;font-weight:500;color:var(--text2)}
+/* loading */
+.ls{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:16px}
+.ls.hidden{display:none}
 .spinner{width:36px;height:36px;border:3px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.loading-text{font-family:var(--font-mono);font-size:12px;color:var(--text3)}
-
-#toast-c{position:fixed;bottom:22px;right:22px;z-index:300;display:flex;flex-direction:column;gap:7px;pointer-events:none}
-.toast{background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:11px 15px;display:flex;align-items:center;gap:9px;font-size:13px;min-width:230px;box-shadow:var(--shadow);animation:tIn .18s ease,tOut .2s ease 2.8s forwards;pointer-events:auto}
-@keyframes tIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
-@keyframes tOut{to{opacity:0;transform:translateX(20px)}}
-.toast-success{border-left:3px solid var(--green)}
-.toast-error{border-left:3px solid var(--red)}
-.toast-info{border-left:3px solid var(--accent)}
-
+.lt{font-family:var(--fm);font-size:12px;color:var(--text3)}
+/* toast */
+#tc{position:fixed;bottom:22px;right:22px;z-index:300;display:flex;flex-direction:column;gap:7px;pointer-events:none}
+.toast{background:var(--surface2);border:1px solid var(--border2);border-radius:var(--rs);padding:11px 15px;display:flex;align-items:center;gap:9px;font-size:13px;min-width:230px;box-shadow:var(--sh);animation:ti .18s ease,tou .2s ease 2.8s forwards;pointer-events:auto}
+@keyframes ti{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes tou{to{opacity:0;transform:translateX(20px)}}
+.t-ok{border-left:3px solid var(--green)}
+.t-er{border-left:3px solid var(--red)}
+.t-in{border-left:3px solid var(--accent)}
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-track{background:var(--surface)}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
@@ -148,95 +148,81 @@ tbody tr:hover{background:var(--surface2)}
 </head>
 <body>
 
-<!-- LOADING SCREEN -->
-<div class="loading-screen" id="loading-screen">
-  <div class="spinner"></div>
-  <div class="loading-text">Connecting to JSONBin…</div>
-</div>
+<div class="ls" id="ls"><div class="spinner"></div><div class="lt">Connecting to JSONBin…</div></div>
 
-<!-- HEADER -->
 <header>
-  <div class="logo">
-    <div class="logo-dot"></div>
-    Dream Books
-    <span class="logo-sub">Access Control</span>
-  </div>
-  <div class="header-right">
-    <span class="sync-badge sync-live" id="sync-badge">☁ synced</span>
-    <span class="badge-admin">L0 · Platform Owner</span>
+  <div class="logo"><div class="logo-dot"></div>Dream Books<span class="logo-sub">Access Control</span></div>
+  <div class="hr">
+    <span class="sync s-live" id="sync">☁ synced</span>
+    <span class="b-admin">L0 · Platform Owner</span>
     <div class="avatar">SA</div>
   </div>
 </header>
 
-<!-- NAV TABS -->
 <div class="nav-tabs">
-  <div class="tab active" onclick="switchTab('users')" id="tab-users">👤 Users <span class="tab-count" id="cnt-users">–</span></div>
+  <div class="tab active" onclick="switchTab('roles')" id="tab-roles">🎭 Roles <span class="tab-count" id="cnt-roles">–</span></div>
+  <span class="tab-arrow">→</span>
   <div class="tab" onclick="switchTab('modules')" id="tab-modules">📦 Modules <span class="tab-count" id="cnt-modules">–</span></div>
-  <div class="tab" onclick="switchTab('roles')" id="tab-roles">🎭 Roles <span class="tab-count" id="cnt-roles">–</span></div>
+  <span class="tab-arrow">→</span>
   <div class="tab" onclick="switchTab('permissions')" id="tab-permissions">🔐 Permissions <span class="tab-count" id="cnt-permissions">–</span></div>
+  <span class="tab-arrow">→</span>
+  <div class="tab" onclick="switchTab('users')" id="tab-users">👤 Users <span class="tab-count" id="cnt-users">–</span></div>
 </div>
 
 <main>
 
-<!-- USERS -->
-<div class="section active" id="section-users">
-  <div class="section-header">
-    <div><div class="section-title">Users</div><div class="section-desc">Manage platform users, assign roles and track access levels.</div></div>
-    <div class="section-actions">
-      <div class="search-wrap"><span class="search-icon">🔍</span><input class="search-input" placeholder="Search users…" oninput="filterTable('users-tbody',this.value)"/></div>
-      <button class="btn btn-primary" onclick="openModal('user')">＋ Add User</button>
+<!-- ROLES -->
+<div class="section active" id="section-roles">
+  <div class="sh">
+    <div><div class="st">Roles</div><div class="sd">Create roles → assign modules → set CRUD permissions per module.</div></div>
+    <div class="sa">
+      <div class="sw"><span class="sic">🔍</span><input class="si" placeholder="Search roles…" oninput="filterTable('roles-tbody',this.value)"/></div>
+      <button class="btn btn-p" onclick="openModal('role')">＋ Add Role</button>
     </div>
   </div>
-  <div class="stats-row" id="user-stats"></div>
-  <div class="table-wrap"><table>
-    <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Level</th><th>Status</th><th>Joined</th><th style="width:100px">Actions</th></tr></thead>
-    <tbody id="users-tbody"><tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text3)">Loading…</td></tr></tbody>
+  <div class="tw"><table>
+    <thead><tr><th>Role</th><th>Description</th><th>Modules &amp; Permissions</th><th>Users</th><th style="width:100px">Actions</th></tr></thead>
+    <tbody id="roles-tbody"></tbody>
   </table></div>
 </div>
 
 <!-- MODULES -->
 <div class="section" id="section-modules">
-  <div class="section-header">
-    <div><div class="section-title">Modules</div><div class="section-desc">Platform feature modules available for role assignment.</div></div>
-    <div class="section-actions">
-      <div class="search-wrap"><span class="search-icon">🔍</span><input class="search-input" placeholder="Search modules…" oninput="filterTable('modules-tbody',this.value)"/></div>
-      <button class="btn btn-primary" onclick="openModal('module')">＋ Add Module</button>
+  <div class="sh">
+    <div><div class="st">Modules</div><div class="sd">Platform feature modules. Assign to roles with specific CRUD permissions from the Roles tab.</div></div>
+    <div class="sa">
+      <div class="sw"><span class="sic">🔍</span><input class="si" placeholder="Search modules…" oninput="filterTable('modules-tbody',this.value)"/></div>
+      <button class="btn btn-p" onclick="openModal('module')">＋ Add Module</button>
     </div>
   </div>
-  <div class="stats-row" id="module-stats"></div>
-  <div class="table-wrap"><table>
-    <thead><tr><th>Module Name</th><th>Key</th><th>Category</th><th>Min Level</th><th>Status</th><th style="width:100px">Actions</th></tr></thead>
-    <tbody id="modules-tbody"><tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text3)">Loading…</td></tr></tbody>
+  <div class="stats-row" id="mod-stats"></div>
+  <div class="tw"><table>
+    <thead><tr><th>Module</th><th>Key</th><th>Status</th><th>Assigned To Roles (with Permissions)</th><th style="width:100px">Actions</th></tr></thead>
+    <tbody id="modules-tbody"></tbody>
   </table></div>
 </div>
 
-<!-- ROLES -->
-<div class="section" id="section-roles">
-  <div class="section-header">
-    <div><div class="section-title">Roles</div><div class="section-desc">Define role hierarchy, levels and module access counts.</div></div>
-    <div class="section-actions">
-      <div class="search-wrap"><span class="search-icon">🔍</span><input class="search-input" placeholder="Search roles…" oninput="filterTable('roles-tbody',this.value)"/></div>
-      <button class="btn btn-primary" onclick="openModal('role')">＋ Add Role</button>
-    </div>
-  </div>
-  <div class="table-wrap"><table>
-    <thead><tr><th>Role Name</th><th>Level</th><th>Description</th><th>Modules</th><th>Users</th><th>Type</th><th style="width:100px">Actions</th></tr></thead>
-    <tbody id="roles-tbody"><tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text3)">Loading…</td></tr></tbody>
-  </table></div>
-</div>
-
-<!-- PERMISSIONS -->
+<!-- PERMISSIONS MATRIX -->
 <div class="section" id="section-permissions">
-  <div class="section-header">
-    <div><div class="section-title">Permissions</div><div class="section-desc">Fine-grained controls mapped to roles and levels.</div></div>
-    <div class="section-actions">
-      <div class="search-wrap"><span class="search-icon">🔍</span><input class="search-input" placeholder="Search permissions…" oninput="filterTable('permissions-tbody',this.value)"/></div>
-      <button class="btn btn-primary" onclick="openModal('permission')">＋ Add Permission</button>
+  <div class="sh">
+    <div><div class="st">Permissions</div><div class="sd">Full matrix — which role has which permissions on each module. Edit via Roles → ⚙ Manage.</div></div>
+  </div>
+  <div class="tw" id="perm-matrix-wrap"></div>
+</div>
+
+<!-- USERS -->
+<div class="section" id="section-users">
+  <div class="sh">
+    <div><div class="st">Users</div><div class="sd">Assign roles to users. The role defines their module access and CRUD permissions.</div></div>
+    <div class="sa">
+      <div class="sw"><span class="sic">🔍</span><input class="si" placeholder="Search users…" oninput="filterTable('users-tbody',this.value)"/></div>
+      <button class="btn btn-p" onclick="openModal('user')">＋ Add User</button>
     </div>
   </div>
-  <div class="table-wrap"><table>
-    <thead><tr><th>Permission</th><th>Key</th><th style="text-align:center">L0</th><th style="text-align:center">L1</th><th style="text-align:center">L2</th><th style="text-align:center">L3</th><th style="text-align:center">L4</th><th style="text-align:center">L5</th><th>Category</th><th style="width:100px">Actions</th></tr></thead>
-    <tbody id="permissions-tbody"><tr><td colspan="10" style="text-align:center;padding:40px;color:var(--text3)">Loading…</td></tr></tbody>
+  <div class="stats-row" id="user-stats"></div>
+  <div class="tw"><table>
+    <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Modules Access</th><th>Status</th><th>Joined</th><th style="width:100px">Actions</th></tr></thead>
+    <tbody id="users-tbody"></tbody>
   </table></div>
 </div>
 
@@ -244,574 +230,404 @@ tbody tr:hover{background:var(--surface2)}
 
 <!-- MAIN MODAL -->
 <div class="modal-overlay" id="main-modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal" id="modal-body"></div>
+  <div class="modal modal-lg" id="modal-body"></div>
 </div>
 
-<!-- CONFIRM MODAL -->
+<!-- CONFIRM -->
 <div class="modal-overlay" id="confirm-modal" onclick="if(event.target===this)closeConfirm()">
   <div class="modal" style="width:360px">
-    <div class="modal-header">
-      <div class="modal-title" style="color:var(--red)">⚠ Confirm</div>
-      <button class="modal-close" onclick="closeConfirm()">✕</button>
-    </div>
-    <p class="confirm-msg" id="confirm-msg-text"></p>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeConfirm()">Cancel</button>
-      <button class="btn btn-danger" id="confirm-ok-btn">Confirm</button>
-    </div>
+    <div class="mh"><div class="mt" style="color:var(--red)">⚠ Confirm Delete</div><button class="mc" onclick="closeConfirm()">✕</button></div>
+    <p style="color:var(--text2);font-size:14px;line-height:1.6" id="confirm-txt"></p>
+    <div class="mf"><button class="btn btn-g" onclick="closeConfirm()">Cancel</button><button class="btn btn-d" id="confirm-btn">Delete</button></div>
   </div>
 </div>
 
-<div id="toast-c"></div>
+<div id="tc"></div>
 
 <script>
-// ═══════════════════════════════════════
-// JSONBIN CONFIG
-// ═══════════════════════════════════════
 const BIN_USERS   = '69cc98db856a682189ea8abe';
 const BIN_CATALOG = '69cc9902aaba882197b2b2b9';
 const API_KEY     = '$2a$10$QChPf.v5wdalpyeRA6OVLu4xpitQW2oKdEXt6xhHWPy/VoJk7xKfi';
-const BASE_URL    = 'https://api.jsonbin.io/v3/b';
+const BASE        = 'https://api.jsonbin.io/v3/b';
+const PERMS       = ['Full','View','Create','Edit','Delete'];
 
-// ═══════════════════════════════════════
-// CONSTANTS
-// ═══════════════════════════════════════
-const LEVELS      = ['L0','L1','L2','L3','L4','L5'];
-const LEVEL_NAMES = {L0:'Platform Owner',L1:'Full System',L2:'Financial',L3:'Operational',L4:'Self-Service',L5:'Read-Only'};
-const LEVEL_CLS   = {L0:'pill-l0',L1:'pill-l1',L2:'pill-l2',L3:'pill-l3',L4:'pill-l4',L5:'pill-l5'};
-const LEVEL_DOTS  = {L0:'#26215C',L1:'#534AB7',L2:'#185FA5',L3:'#0F6E56',L4:'#854F0B',L5:'#5F5E5A'};
-const MOD_CATS    = ['Accounting','Finance','Sales','Operations','HR','Compliance','Admin','Platform'];
-const PERM_CATS   = ['Platform','Admin','Finance','Compliance','Sales','Operations','HR','Data','Comms'];
+// Data shapes:
+// roles[i]   = { id, name, desc, modulePerms:{ moduleId:[...perms] } }
+// modules[i] = { id, name, key, status }
+// users[i]   = { id, name, email, roleId, status, joined }
 
-// ═══════════════════════════════════════
-// SEED DATA (written to JSONBin on first load if bins are empty)
-// ═══════════════════════════════════════
-const SEED_USERS = {
-  _meta:{ nextId:11 },
-  users:[
-    {id:1,name:'Arjun Sharma',   email:'arjun@dreambooks.io',   role:'Super Admin',       level:'L0',status:'active',  joined:'2023-01-15'},
-    {id:2,name:'Priya Nair',     email:'priya@dreambooks.io',   role:'Admin',             level:'L1',status:'active',  joined:'2023-03-22'},
-    {id:3,name:'Kiran Mehta',    email:'kiran@dreambooks.io',   role:'Finance Manager',   level:'L2',status:'active',  joined:'2023-06-10'},
-    {id:4,name:'Divya Rajan',    email:'divya@dreambooks.io',   role:'Accountant',        level:'L2',status:'active',  joined:'2023-07-01'},
-    {id:5,name:'Sanjay Pillai',  email:'sanjay@dreambooks.io',  role:'Account Manager',   level:'L3',status:'active',  joined:'2023-09-18'},
-    {id:6,name:'Lakshmi Iyer',   email:'lakshmi@dreambooks.io', role:'Project Manager',   level:'L3',status:'inactive',joined:'2023-10-05'},
-    {id:7,name:'Rahul Verma',    email:'rahul@dreambooks.io',   role:'Finance Executive', level:'L3',status:'active',  joined:'2024-01-12'},
-    {id:8,name:'Ananya Singh',   email:'ananya@dreambooks.io',  role:'Team Member',       level:'L4',status:'active',  joined:'2024-02-28'},
-    {id:9,name:'Vijay Kumar',    email:'vijay@dreambooks.io',   role:'Contractor',        level:'L4',status:'active',  joined:'2024-04-03'},
-    {id:10,name:'Meera Agarwal', email:'meera@dreambooks.io',   role:'Auditor',           level:'L5',status:'active',  joined:'2024-05-20'}
-  ]
-};
+const EMPTY_USERS   = { _meta:{nextId:1}, users:[] };
+const EMPTY_CATALOG = { _meta:{nextId:{modules:1,roles:1}}, modules:[], roles:[] };
 
-const SEED_CATALOG = {
-  _meta:{ nextId:{modules:16,roles:11,permissions:14} },
-  modules:[
-    {id:1,name:'Chart of Accounts',key:'coa',         category:'Accounting', minLevel:'L2',status:'active'},
-    {id:2,name:'Journal Entries',  key:'journals',    category:'Accounting', minLevel:'L2',status:'active'},
-    {id:3,name:'Invoicing',        key:'invoices',    category:'Sales',      minLevel:'L3',status:'active'},
-    {id:4,name:'Quotations',       key:'quotes',      category:'Sales',      minLevel:'L3',status:'active'},
-    {id:5,name:'Banking',          key:'banking',     category:'Finance',    minLevel:'L2',status:'active'},
-    {id:6,name:'Bill Payments',    key:'bills',       category:'Finance',    minLevel:'L3',status:'active'},
-    {id:7,name:'Projects',         key:'projects',    category:'Operations', minLevel:'L3',status:'active'},
-    {id:8,name:'Timesheets',       key:'timesheets',  category:'HR',         minLevel:'L4',status:'active'},
-    {id:9,name:'Expenses',         key:'expenses',    category:'HR',         minLevel:'L4',status:'active'},
-    {id:10,name:'GST / Tax Filing',key:'tax',         category:'Compliance', minLevel:'L2',status:'active'},
-    {id:11,name:'Audit Log',       key:'audit',       category:'Compliance', minLevel:'L5',status:'active'},
-    {id:12,name:'User Management', key:'users',       category:'Admin',      minLevel:'L1',status:'active'},
-    {id:13,name:'Integrations',    key:'integrations',category:'Admin',      minLevel:'L1',status:'active'},
-    {id:14,name:'Billing & Plans', key:'billing',     category:'Platform',   minLevel:'L0',status:'active'},
-    {id:15,name:'Multi-Org Switch',key:'multi_org',   category:'Platform',   minLevel:'L0',status:'active'}
-  ],
-  roles:[
-    {id:1,name:'Super Admin',      level:'L0',desc:'Full platform · create/delete orgs · billing',  modules:'All',    users:1,type:'System'},
-    {id:2,name:'Admin',            level:'L1',desc:'Full org access · users · roles · settings',    modules:'35+',    users:1,type:'System'},
-    {id:3,name:'Finance Manager',  level:'L2',desc:'Full financial control · approvals · reports',  modules:'28',     users:1,type:'System'},
-    {id:4,name:'Accountant',       level:'L2',desc:'COA · journals · banking · close books',        modules:'22',     users:1,type:'System'},
-    {id:5,name:'Account Manager',  level:'L3',desc:'Customers · invoices · quotes · own records',   modules:'12',     users:1,type:'System'},
-    {id:6,name:'Project Manager',  level:'L3',desc:'Projects · resources · timesheets · own',       modules:'10',     users:1,type:'System'},
-    {id:7,name:'Finance Executive',level:'L3',desc:'Bills · payments · bank imports · tax',         modules:'18',     users:1,type:'System'},
-    {id:8,name:'Team Member',      level:'L4',desc:'Timesheets · own expenses · dashboards',        modules:'4',      users:1,type:'System'},
-    {id:9,name:'Contractor',       level:'L4',desc:'Timesheets · assigned projects · limited',      modules:'2',      users:1,type:'System'},
-    {id:10,name:'Auditor',         level:'L5',desc:'Read-only · all modules · export only',         modules:'35+ (r)',users:1,type:'System'}
-  ],
-  permissions:[
-    {id:1, name:'Create / Delete Orgs',key:'org.create_delete',  levels:['L0'],                    category:'Platform',  danger:true},
-    {id:2, name:'Manage Billing',       key:'billing.manage',     levels:['L0'],                    category:'Platform',  danger:true},
-    {id:3, name:'Multi-Org Switch',     key:'org.switch',         levels:['L0'],                    category:'Platform',  danger:false},
-    {id:4, name:'Manage Users & Roles', key:'users.manage',       levels:['L0','L1'],               category:'Admin',     danger:true},
-    {id:5, name:'Manage Integrations',  key:'integrations.manage',levels:['L0','L1'],               category:'Admin',     danger:false},
-    {id:6, name:'Close / Lock Books',   key:'books.close',        levels:['L0','L1','L2'],          category:'Finance',   danger:true},
-    {id:7, name:'Approve Transactions', key:'txn.approve',        levels:['L0','L1','L2'],          category:'Finance',   danger:false},
-    {id:8, name:'Void Transactions',    key:'txn.void',           levels:['L0','L1','L2'],          category:'Finance',   danger:true},
-    {id:9, name:'File GST Returns',     key:'gst.file',           levels:['L0','L1','L2'],          category:'Compliance',danger:false},
-    {id:10,name:'Import Data',          key:'data.import',        levels:['L0','L1','L2','L3'],     category:'Data',      danger:false},
-    {id:11,name:'Export Data',          key:'data.export',        levels:['L0','L1','L2','L3','L5'],category:'Data',      danger:false},
-    {id:12,name:'View Audit Log',       key:'audit.view',         levels:['L0','L1','L2','L5'],     category:'Compliance',danger:false},
-    {id:13,name:'Send Emails',          key:'email.send',         levels:['L0','L1','L2','L3'],     category:'Comms',     danger:false}
-  ]
-};
-
-// ═══════════════════════════════════════
-// IN-MEMORY CACHE
-// ═══════════════════════════════════════
-let db = { users: null, catalog: null };
-let currentTab = 'users';
+let db = { users:null, catalog:null };
+let currentTab = 'roles';
 let editingId = null, editingType = null;
+let roleDraft = {};   // holds { id, modulePerms:{ moduleId: Set<perm> } } during assign modal
 
-// ═══════════════════════════════════════
-// JSONBIN API
-// ═══════════════════════════════════════
-const headers = {
-  'Content-Type': 'application/json',
-  'X-Master-Key': API_KEY,
-  'X-Bin-Versioning': 'false'   // always overwrite, no version history needed
-};
+// ── JSONBin ──
+const H = {'Content-Type':'application/json','X-Master-Key':API_KEY,'X-Bin-Versioning':'false'};
+async function binGet(id){ const r=await fetch(`${BASE}/${id}/latest`,{headers:H}); if(!r.ok) throw new Error(r.status); return (await r.json()).record; }
+async function binPut(id,d){ const r=await fetch(`${BASE}/${id}`,{method:'PUT',headers:H,body:JSON.stringify(d)}); if(!r.ok) throw new Error(r.status); return r.json(); }
 
-async function binGet(binId) {
-  const res = await fetch(`${BASE_URL}/${binId}/latest`, { headers });
-  if (!res.ok) throw new Error('Read failed: ' + res.status);
-  const json = await res.json();
-  return json.record;
+function setSyncStatus(s){
+  const el=document.getElementById('sync'); el.className='sync';
+  if(s==='saving'){el.classList.add('s-save');el.textContent='↑ saving…';}
+  else if(s==='live'){el.classList.add('s-live');el.textContent='☁ synced';}
+  else{el.classList.add('s-err');el.textContent='✗ error';}
 }
 
-async function binPut(binId, data) {
-  const res = await fetch(`${BASE_URL}/${binId}`, {
-    method: 'PUT',
-    headers,
-    body: JSON.stringify(data)
-  });
-  if (!res.ok) throw new Error('Write failed: ' + res.status);
-  return res.json();
-}
-
-// ═══════════════════════════════════════
-// SYNC STATUS
-// ═══════════════════════════════════════
-function setSyncStatus(state) {
-  const el = document.getElementById('sync-badge');
-  el.className = 'sync-badge';
-  if (state === 'saving') { el.classList.add('sync-saving'); el.textContent = '↑ saving…'; }
-  else if (state === 'live') { el.classList.add('sync-live');  el.textContent = '☁ synced'; }
-  else if (state === 'error'){ el.classList.add('sync-error'); el.textContent = '✗ sync error'; }
-}
-
-// ═══════════════════════════════════════
-// BOOT — LOAD FROM JSONBIN
-// ═══════════════════════════════════════
-async function boot() {
-  try {
-    const [usersData, catalogData] = await Promise.all([
-      binGet(BIN_USERS),
-      binGet(BIN_CATALOG)
-    ]);
-
-    // If bins were freshly created and are empty / missing keys, seed them
-    const needsUserSeed   = !usersData || !usersData.users;
-    const needsCatalogSeed = !catalogData || !catalogData.modules;
-
-    db.users   = needsUserSeed   ? SEED_USERS   : usersData;
-    db.catalog = needsCatalogSeed ? SEED_CATALOG : catalogData;
-
-    if (needsUserSeed)    await binPut(BIN_USERS,   db.users);
-    if (needsCatalogSeed) await binPut(BIN_CATALOG, db.catalog);
-
-    document.getElementById('loading-screen').classList.add('hidden');
-    setSyncStatus('live');
-    renderAll();
-  } catch(e) {
-    document.getElementById('loading-screen').classList.add('hidden');
-    setSyncStatus('error');
-    toast('Could not connect to JSONBin. Check API key or network.', 'error');
-    // fallback to seed data so UI still works
-    db.users   = JSON.parse(JSON.stringify(SEED_USERS));
-    db.catalog = JSON.parse(JSON.stringify(SEED_CATALOG));
+async function boot(){
+  try{
+    const [u,c] = await Promise.all([binGet(BIN_USERS),binGet(BIN_CATALOG)]);
+    db.users   = (u&&u._meta) ? u : JSON.parse(JSON.stringify(EMPTY_USERS));
+    db.catalog = (c&&c._meta) ? c : JSON.parse(JSON.stringify(EMPTY_CATALOG));
+    db.catalog.roles.forEach(r=>{ if(!r.modulePerms) r.modulePerms={}; });
+    document.getElementById('ls').classList.add('hidden');
+    setSyncStatus('live'); renderAll();
+  }catch(e){
+    document.getElementById('ls').classList.add('hidden');
+    setSyncStatus('error'); toast('Could not connect to JSONBin.','error');
+    db.users=JSON.parse(JSON.stringify(EMPTY_USERS));
+    db.catalog=JSON.parse(JSON.stringify(EMPTY_CATALOG));
     renderAll();
   }
 }
+async function saveUsers(){ setSyncStatus('saving'); try{ await binPut(BIN_USERS,db.users); setSyncStatus('live'); }catch(e){ setSyncStatus('error'); toast('Sync failed.','error'); } }
+async function saveCatalog(){ setSyncStatus('saving'); try{ await binPut(BIN_CATALOG,db.catalog); setSyncStatus('live'); }catch(e){ setSyncStatus('error'); toast('Sync failed.','error'); } }
 
-// ═══════════════════════════════════════
-// SAVE TO JSONBIN
-// ═══════════════════════════════════════
-async function saveUsers() {
-  setSyncStatus('saving');
-  try {
-    await binPut(BIN_USERS, db.users);
-    setSyncStatus('live');
-  } catch(e) {
-    setSyncStatus('error');
-    toast('Sync failed — changes may not be saved.', 'error');
-  }
-}
+// ── Tabs ──
+function switchTab(n){ currentTab=n; document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); document.querySelectorAll('.section').forEach(s=>s.classList.remove('active')); document.getElementById('tab-'+n).classList.add('active'); document.getElementById('section-'+n).classList.add('active'); renderSection(n); }
+function renderAll(){ ['roles','modules','permissions','users'].forEach(renderSection); updateCounts(); }
+function renderSection(n){ if(n==='roles') renderRoles(); if(n==='modules') renderModules(); if(n==='permissions') renderPermMatrix(); if(n==='users') renderUsers(); updateCounts(); }
 
-async function saveCatalog() {
-  setSyncStatus('saving');
-  try {
-    await binPut(BIN_CATALOG, db.catalog);
-    setSyncStatus('live');
-  } catch(e) {
-    setSyncStatus('error');
-    toast('Sync failed — changes may not be saved.', 'error');
-  }
-}
+// ── Helpers ──
+const esc = s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+const cap = s=>s.charAt(0).toUpperCase()+s.slice(1);
+function emptyRow(cols,icon,label){ return `<tr><td colspan="${cols}"><div class="empty-state"><div class="ei">${icon}</div><div class="en">${label}</div></div></td></tr>`; }
+function actBtns(type,id,name){ return `<div style="display:flex;gap:5px"><button class="btn btn-g btn-sm btn-ic" onclick="editRecord('${type}',${id})">✏️</button><button class="btn btn-d btn-sm btn-ic" onclick="confirmDelete('${type}',${id},'${esc(name)}')">🗑</button></div>`; }
+function getPerms(role,moduleId){ return new Set(role.modulePerms?.[moduleId]||[]); }
+function roleModuleIds(role){ return Object.keys(role.modulePerms||{}).map(Number); }
+function roleModuleNames(role){ return roleModuleIds(role).map(id=>db.catalog.modules.find(x=>x.id===id)?.name).filter(Boolean); }
+function moduleRoles(moduleId){ return db.catalog.roles.filter(r=>roleModuleIds(r).includes(moduleId)); }
+function permBadges(ps){ return PERMS.map(p=>`<span class="pb has ${ps.has(p)?p:''}" style="${ps.has(p)?'':'opacity:.25'}">${p[0]}</span>`).join(''); }
 
-// ═══════════════════════════════════════
-// TABS
-// ═══════════════════════════════════════
-function switchTab(name) {
-  currentTab = name;
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
-  document.getElementById('section-' + name).classList.add('active');
-  renderSection(name);
-}
-
-function renderAll() {
-  ['users','modules','roles','permissions'].forEach(renderSection);
-  updateCounts();
-}
-
-function renderSection(name) {
-  if (name==='users')       renderUsers();
-  if (name==='modules')     renderModules();
-  if (name==='roles')       renderRoles();
-  if (name==='permissions') renderPermissions();
-  updateCounts();
-}
-
-// ═══════════════════════════════════════
-// HELPERS
-// ═══════════════════════════════════════
-function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
-function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
-function lvPill(lv){ return `<span class="pill ${LEVEL_CLS[lv]||''}">${lv} <span style="font-weight:400;opacity:.7">${LEVEL_NAMES[lv]||''}</span></span>`; }
-function emptyRow(cols,icon,label){ return `<tr><td colspan="${cols}"><div class="empty-state"><div class="empty-icon">${icon}</div><div class="empty-title">${label}</div></div></td></tr>`; }
-function actBtns(type,id,name,locked=false){
-  const del = locked
-    ? `<button class="btn btn-danger btn-sm btn-icon" onclick="toast('System roles cannot be deleted.','error')" title="Protected">🔒</button>`
-    : `<button class="btn btn-danger btn-sm btn-icon" onclick="confirmDelete('${type}',${id},'${esc(name)}')" title="Delete">🗑</button>`;
-  return `<div style="display:flex;gap:5px">
-    <button class="btn btn-ghost btn-sm btn-icon" onclick="editRecord('${type}',${id})" title="Edit">✏️</button>${del}
-  </div>`;
-}
-
-// ═══════════════════════════════════════
-// RENDER USERS
-// ═══════════════════════════════════════
-function renderUsers(){
-  const list = db.users?.users || [];
-  const tbody = document.getElementById('users-tbody');
-  if(!list.length){ tbody.innerHTML = emptyRow(7,'👤','No users yet'); return; }
-  tbody.innerHTML = list.map(u=>`
-    <tr>
-      <td><b style="color:var(--text)">${esc(u.name)}</b></td>
-      <td style="color:var(--text2);font-family:var(--font-mono);font-size:12px">${esc(u.email)}</td>
-      <td>${esc(u.role)}</td>
-      <td>${lvPill(u.level)}</td>
-      <td><span class="pill ${u.status==='active'?'s-active':'s-inactive'}">${u.status}</span></td>
-      <td style="color:var(--text3);font-size:12px">${esc(u.joined)}</td>
-      <td>${actBtns('user',u.id,u.name)}</td>
-    </tr>`).join('');
-  const active = list.filter(u=>u.status==='active').length;
-  const byLv   = list.reduce((a,u)=>{a[u.level]=(a[u.level]||0)+1;return a},{});
-  const topLv  = Object.entries(byLv).sort((a,b)=>b[1]-a[1])[0];
-  document.getElementById('user-stats').innerHTML=`
-    <div class="stat-card"><div class="stat-label">Total</div><div class="stat-value">${list.length}</div></div>
-    <div class="stat-card"><div class="stat-label">Active</div><div class="stat-value" style="color:var(--green)">${active}</div></div>
-    <div class="stat-card"><div class="stat-label">Inactive</div><div class="stat-value" style="color:var(--red)">${list.length-active}</div></div>
-    <div class="stat-card"><div class="stat-label">Top Level</div><div class="stat-value" style="font-size:18px">${topLv?topLv[0]:'-'}</div><div class="stat-sub">${topLv?topLv[1]+' users':''}</div></div>`;
-}
-
-// ═══════════════════════════════════════
-// RENDER MODULES
-// ═══════════════════════════════════════
-function renderModules(){
-  const list = db.catalog?.modules || [];
-  const tbody = document.getElementById('modules-tbody');
-  if(!list.length){ tbody.innerHTML = emptyRow(6,'📦','No modules yet'); return; }
-  tbody.innerHTML = list.map(m=>`
-    <tr>
-      <td><b style="color:var(--text)">${esc(m.name)}</b></td>
-      <td><code style="background:var(--surface2);padding:2px 8px;border-radius:4px;font-size:11px;color:var(--accent2)">${esc(m.key)}</code></td>
-      <td><span class="pill" style="background:var(--surface2);color:var(--text2);border:1px solid var(--border)">${esc(m.category)}</span></td>
-      <td>${lvPill(m.minLevel)}</td>
-      <td><span class="pill ${m.status==='active'?'s-active':'s-inactive'}">${m.status}</span></td>
-      <td>${actBtns('module',m.id,m.name)}</td>
-    </tr>`).join('');
-  const cats   = [...new Set(list.map(m=>m.category))].length;
-  const active = list.filter(m=>m.status==='active').length;
-  document.getElementById('module-stats').innerHTML=`
-    <div class="stat-card"><div class="stat-label">Total</div><div class="stat-value">${list.length}</div></div>
-    <div class="stat-card"><div class="stat-label">Active</div><div class="stat-value" style="color:var(--green)">${active}</div></div>
-    <div class="stat-card"><div class="stat-label">Categories</div><div class="stat-value">${cats}</div></div>`;
-}
-
-// ═══════════════════════════════════════
-// RENDER ROLES
-// ═══════════════════════════════════════
+// ── Render Roles ──
 function renderRoles(){
-  const list = db.catalog?.roles || [];
-  const tbody = document.getElementById('roles-tbody');
-  if(!list.length){ tbody.innerHTML = emptyRow(7,'🎭','No roles yet'); return; }
-  tbody.innerHTML = list.map(r=>`
-    <tr>
-      <td><b style="color:var(--text)">${esc(r.name)}</b></td>
-      <td>${lvPill(r.level)}</td>
-      <td style="color:var(--text2);font-size:12.5px;max-width:240px">${esc(r.desc)}</td>
-      <td><span class="pill" style="background:var(--accent-glow);color:var(--accent2);border:1px solid rgba(124,111,247,0.3)">${esc(r.modules)}</span></td>
-      <td style="color:var(--text3)">${r.users}</td>
-      <td><span class="pill ${r.type==='System'?'pill-l1':'pill-l3'}">${esc(r.type)}</span></td>
-      <td>${actBtns('role',r.id,r.name,r.type==='System')}</td>
-    </tr>`).join('');
-}
-
-// ═══════════════════════════════════════
-// RENDER PERMISSIONS
-// ═══════════════════════════════════════
-function renderPermissions(){
-  const list = db.catalog?.permissions || [];
-  const tbody = document.getElementById('permissions-tbody');
-  if(!list.length){ tbody.innerHTML = emptyRow(10,'🔐','No permissions yet'); return; }
-  tbody.innerHTML = list.map(p=>{
-    const dots = LEVELS.map(lv=>{
-      const on = p.levels.includes(lv);
-      return `<td style="text-align:center"><span class="perm-dot" style="background:${on?LEVEL_DOTS[lv]:'#2e2c42'};${on?'box-shadow:0 0 4px '+LEVEL_DOTS[lv]+'55':''}"></span></td>`;
-    }).join('');
+  const list=db.catalog?.roles||[];
+  const tbody=document.getElementById('roles-tbody');
+  if(!list.length){ tbody.innerHTML=emptyRow(5,'🎭','No roles yet — click + Add Role to start'); return; }
+  tbody.innerHTML=list.map(r=>{
+    const mids=roleModuleIds(r);
+    const modHtml=mids.length
+      ? mids.map(mid=>{
+          const m=db.catalog.modules.find(x=>x.id===mid); if(!m) return '';
+          const ps=getPerms(r,mid);
+          return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+            <span style="font-size:12px;color:var(--text2);min-width:110px;flex-shrink:0">${esc(m.name)}</span>
+            <div class="perm-badges">${permBadges(ps)}</div>
+          </div>`;
+        }).join('')
+      : `<span style="color:var(--text3);font-size:12px">No modules assigned yet</span>`;
+    const uc=db.users.users.filter(u=>u.roleId===r.id).length;
     return `<tr>
-      <td><b style="color:var(--text)">${esc(p.name)}</b>${p.danger?' <span style="font-size:9px;background:var(--red-soft);color:var(--red);padding:1px 6px;border-radius:10px;font-family:var(--font-mono)">DANGER</span>':''}</td>
-      <td><code style="background:var(--surface2);padding:2px 8px;border-radius:4px;font-size:10.5px;color:var(--accent2)">${esc(p.key)}</code></td>
-      ${dots}
-      <td><span class="pill" style="background:var(--surface2);color:var(--text2);border:1px solid var(--border)">${esc(p.category)}</span></td>
-      <td>${actBtns('permission',p.id,p.name)}</td>
+      <td><b style="color:var(--text)">${esc(r.name)}</b></td>
+      <td style="color:var(--text2);font-size:12.5px;max-width:180px">${esc(r.desc)}</td>
+      <td>
+        ${modHtml}
+        <button class="btn btn-g btn-sm" style="margin-top:${mids.length?'8':'0'}px;font-size:11px" onclick="openRoleAssign(${r.id})">⚙ Manage modules &amp; permissions</button>
+      </td>
+      <td style="color:var(--text3)">${uc}</td>
+      <td>${actBtns('role',r.id,r.name)}</td>
     </tr>`;
   }).join('');
 }
 
-// ═══════════════════════════════════════
-// COUNTS
-// ═══════════════════════════════════════
-function updateCounts(){
-  document.getElementById('cnt-users').textContent       = db.users?.users?.length       || 0;
-  document.getElementById('cnt-modules').textContent     = db.catalog?.modules?.length   || 0;
-  document.getElementById('cnt-roles').textContent       = db.catalog?.roles?.length     || 0;
-  document.getElementById('cnt-permissions').textContent = db.catalog?.permissions?.length || 0;
+// ── Render Modules ──
+function renderModules(){
+  const list=db.catalog?.modules||[];
+  const tbody=document.getElementById('modules-tbody');
+  if(!list.length){ tbody.innerHTML=emptyRow(5,'📦','No modules yet — click + Add Module'); return; }
+  tbody.innerHTML=list.map(m=>{
+    const roles=moduleRoles(m.id);
+    const rolesHtml=roles.length
+      ? roles.map(r=>{
+          const ps=getPerms(r,m.id);
+          return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:3px">
+            <span class="tag">${esc(r.name)}</span>
+            <div class="perm-badges">${permBadges(ps)}</div>
+          </div>`;
+        }).join('')
+      : `<span style="color:var(--text3);font-size:12px">Not assigned to any role</span>`;
+    return `<tr>
+      <td><b style="color:var(--text)">${esc(m.name)}</b></td>
+      <td><code style="background:var(--surface2);padding:2px 8px;border-radius:4px;font-size:11px;color:var(--accent2)">${esc(m.key)}</code></td>
+      <td><span class="pill ${m.status==='active'?'p-on':'p-off'}">${m.status}</span></td>
+      <td>${rolesHtml}</td>
+      <td>${actBtns('module',m.id,m.name)}</td>
+    </tr>`;
+  }).join('');
+  const active=list.filter(m=>m.status==='active').length;
+  document.getElementById('mod-stats').innerHTML=`
+    <div class="sc"><div class="sl">Total</div><div class="sv">${list.length}</div></div>
+    <div class="sc"><div class="sl">Active</div><div class="sv" style="color:var(--green)">${active}</div></div>
+    <div class="sc"><div class="sl">Inactive</div><div class="sv" style="color:var(--red)">${list.length-active}</div></div>`;
 }
 
-// ═══════════════════════════════════════
-// SEARCH
-// ═══════════════════════════════════════
-function filterTable(tbodyId, q){
-  document.querySelectorAll(`#${tbodyId} tr`).forEach(row=>{
-    row.style.display = row.textContent.toLowerCase().includes(q.toLowerCase()) ? '' : 'none';
+// ── Render Permission Matrix ──
+function renderPermMatrix(){
+  const roles=db.catalog?.roles||[]; const modules=db.catalog?.modules||[];
+  const wrap=document.getElementById('perm-matrix-wrap');
+  if(!roles.length||!modules.length){
+    wrap.innerHTML=`<div class="empty-state"><div class="ei">🔐</div><div class="en">Add roles and modules first, then assign permissions via Roles → ⚙ Manage.</div></div>`; return;
+  }
+  let html=`<div style="overflow-x:auto"><table><thead><tr><th>Role</th>${modules.map(m=>`<th style="text-align:center;min-width:120px">${esc(m.name)}</th>`).join('')}</tr></thead><tbody>`;
+  roles.forEach(r=>{
+    html+=`<tr><td><b style="color:var(--text)">${esc(r.name)}</b></td>`;
+    modules.forEach(m=>{
+      const ps=getPerms(r,m.id);
+      html+=`<td style="text-align:center">${ps.size?`<div class="perm-badges" style="justify-content:center">${permBadges(ps)}</div>`:'<span style="color:var(--text3);font-size:11px">—</span>'}</td>`;
+    });
+    html+=`</tr>`;
   });
+  html+=`</tbody></table></div><div style="padding:12px 16px;border-top:1px solid var(--border);display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <span style="font-size:11px;color:var(--text3);font-family:var(--fm)">Legend:</span>
+    ${PERMS.map(p=>`<span class="pb has ${p}" style="font-size:11px">${p[0]} = ${p}</span>`).join('')}
+    <span style="font-size:11px;color:var(--text3);margin-left:auto">Edit via Roles tab → ⚙ Manage modules &amp; permissions</span>
+  </div>`;
+  wrap.innerHTML=html;
 }
 
-// ═══════════════════════════════════════
-// MODAL FORMS
-// ═══════════════════════════════════════
-function openModal(type, data={}){
-  editingType=type; editingId=null;
-  document.getElementById('modal-body').innerHTML = buildForm(type, data, false);
+// ── Render Users ──
+function renderUsers(){
+  const list=db.users?.users||[];
+  const tbody=document.getElementById('users-tbody');
+  if(!list.length){ tbody.innerHTML=emptyRow(7,'👤','No users yet — click + Add User'); return; }
+  tbody.innerHTML=list.map(u=>{
+    const role=db.catalog.roles.find(r=>r.id===u.roleId);
+    const modNames=role?roleModuleNames(role):[];
+    const modHtml=modNames.length?`<div class="tag-wrap">${modNames.map(n=>`<span class="tag">${esc(n)}</span>`).join('')}</div>`:`<span style="color:var(--text3);font-size:12px">${role?'No modules assigned':'-'}</span>`;
+    return `<tr>
+      <td><b style="color:var(--text)">${esc(u.name)}</b></td>
+      <td style="color:var(--text2);font-family:var(--fm);font-size:12px">${esc(u.email)}</td>
+      <td>${role?`<span class="tag" style="background:var(--surface2);color:var(--text);border-color:var(--border)">${esc(role.name)}</span>`:`<span style="color:var(--text3);font-size:12px">No role</span>`}</td>
+      <td>${modHtml}</td>
+      <td><span class="pill ${u.status==='active'?'p-on':'p-off'}">${u.status}</span></td>
+      <td style="color:var(--text3);font-size:12px">${esc(u.joined)}</td>
+      <td>${actBtns('user',u.id,u.name)}</td>
+    </tr>`;
+  }).join('');
+  const active=list.filter(u=>u.status==='active').length;
+  document.getElementById('user-stats').innerHTML=`
+    <div class="sc"><div class="sl">Total</div><div class="sv">${list.length}</div></div>
+    <div class="sc"><div class="sl">Active</div><div class="sv" style="color:var(--green)">${active}</div></div>
+    <div class="sc"><div class="sl">Inactive</div><div class="sv" style="color:var(--red)">${list.length-active}</div></div>`;
+}
+
+// ── Counts ──
+function updateCounts(){
+  document.getElementById('cnt-roles').textContent   = db.catalog?.roles?.length||0;
+  document.getElementById('cnt-modules').textContent = db.catalog?.modules?.length||0;
+  document.getElementById('cnt-users').textContent   = db.users?.users?.length||0;
+  let pc=0; (db.catalog?.roles||[]).forEach(r=>{ pc+=Object.keys(r.modulePerms||{}).length; });
+  document.getElementById('cnt-permissions').textContent = pc;
+}
+
+// ── Search ──
+function filterTable(id,q){ document.querySelectorAll(`#${id} tr`).forEach(r=>{ r.style.display=r.textContent.toLowerCase().includes(q.toLowerCase())?'':'none'; }); }
+
+// ═══════════════════════════════════
+// ROLE → MODULE + PERMISSIONS ASSIGN
+// ═══════════════════════════════════
+function openRoleAssign(roleId){
+  const role=db.catalog.roles.find(r=>r.id===roleId); if(!role) return;
+  roleDraft={ id:roleId, modulePerms:{} };
+  Object.entries(role.modulePerms||{}).forEach(([mid,perms])=>{ roleDraft.modulePerms[Number(mid)]=new Set(perms); });
+  buildAssignModal(role);
   document.getElementById('main-modal').classList.add('open');
 }
 
-function editRecord(type, id){
-  editingType=type; editingId=id;
-  let item;
-  if(type==='user')       item = db.users.users.find(x=>x.id===id);
-  else if(type==='module')     item = db.catalog.modules.find(x=>x.id===id);
-  else if(type==='role')       item = db.catalog.roles.find(x=>x.id===id);
-  else if(type==='permission') item = db.catalog.permissions.find(x=>x.id===id);
-  if(!item) return;
-  document.getElementById('modal-body').innerHTML = buildForm(type, item, true);
-  document.getElementById('main-modal').classList.add('open');
-}
+function buildAssignModal(role){
+  const modules=db.catalog.modules;
+  const cards=modules.length===0
+    ? `<div style="color:var(--text3);padding:24px;text-align:center;background:var(--surface2);border-radius:var(--rs)">No modules yet. Go to Modules tab and add some first.</div>`
+    : modules.map(m=>{
+        const sel=roleDraft.modulePerms[m.id] instanceof Set;
+        return `<label class="mac ${sel?'sel':''}" id="mac-${m.id}">
+          <input type="checkbox" ${sel?'checked':''} onchange="toggleModInDraft(${m.id},this.closest('.mac'))"/>
+          <div><div class="mac-n">${esc(m.name)}</div><div class="mac-k">${esc(m.key)}</div></div>
+        </label>`;
+      }).join('');
 
-function buildForm(type, d={}, editing){
-  const title = (editing?'Edit ':'Add ') + cap(type);
-  const lvOpts = LEVELS.map(l=>`<option value="${l}"${(d.level===l||d.minLevel===l)?' selected':''}>${l} — ${LEVEL_NAMES[l]}</option>`).join('');
-  const stOpts = ['active','inactive'].map(s=>`<option value="${s}"${d.status===s?' selected':''}>${s}</option>`).join('');
-  let fields='';
-
-  if(type==='user'){
-    const roleOpts = (db.catalog?.roles||[]).map(r=>`<option value="${esc(r.name)}"${d.role===r.name?' selected':''}>${esc(r.name)}</option>`).join('');
-    fields=`
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" id="f-name" value="${esc(d.name||'')}" placeholder="Arjun Sharma"/></div>
-        <div class="form-group"><label class="form-label">Email</label><input class="form-input" id="f-email" type="email" value="${esc(d.email||'')}" placeholder="user@company.io"/></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Role</label><select class="form-select" id="f-role">${roleOpts}</select></div>
-        <div class="form-group"><label class="form-label">Level</label><select class="form-select" id="f-level">${lvOpts}</select></div>
-      </div>
-      <div class="form-group"><label class="form-label">Status</label><select class="form-select" id="f-status">${stOpts}</select></div>`;
-  } else if(type==='module'){
-    const catOpts = MOD_CATS.map(c=>`<option value="${c}"${d.category===c?' selected':''}>${c}</option>`).join('');
-    fields=`
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Module Name</label><input class="form-input" id="f-name" value="${esc(d.name||'')}" placeholder="e.g. Invoicing"/></div>
-        <div class="form-group"><label class="form-label">Key (slug)</label><input class="form-input" id="f-key" value="${esc(d.key||'')}" placeholder="e.g. invoices"/></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Category</label><select class="form-select" id="f-category">${catOpts}</select></div>
-        <div class="form-group"><label class="form-label">Min Level</label><select class="form-select" id="f-minLevel">${lvOpts}</select></div>
-      </div>
-      <div class="form-group"><label class="form-label">Status</label><select class="form-select" id="f-status">${stOpts}</select></div>`;
-  } else if(type==='role'){
-    const tyOpts = ['Custom','System'].map(t=>`<option value="${t}"${d.type===t?' selected':''}>${t}</option>`).join('');
-    fields=`
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Role Name</label><input class="form-input" id="f-name" value="${esc(d.name||'')}" placeholder="e.g. Sales Lead"/></div>
-        <div class="form-group"><label class="form-label">Level</label><select class="form-select" id="f-level">${lvOpts}</select></div>
-      </div>
-      <div class="form-group"><label class="form-label">Description</label><input class="form-input" id="f-desc" value="${esc(d.desc||'')}" placeholder="Brief description"/></div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Module Count</label><input class="form-input" id="f-modules" value="${esc(d.modules||'')}" placeholder="e.g. 12"/></div>
-        <div class="form-group"><label class="form-label">Type</label><select class="form-select" id="f-type">${tyOpts}</select></div>
-      </div>`;
-  } else if(type==='permission'){
-    const catOpts = PERM_CATS.map(c=>`<option value="${c}"${d.category===c?' selected':''}>${c}</option>`).join('');
-    const dnrOpts = `<option value="false"${!d.danger?' selected':''}>No</option><option value="true"${d.danger?' selected':''}>Yes — destructive</option>`;
-    const boxes   = LEVELS.map(lv=>`<label class="checkbox-item"><input type="checkbox" value="${lv}"${(d.levels||[]).includes(lv)?' checked':''}/> ${lv}</label>`).join('');
-    fields=`
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Permission Name</label><input class="form-input" id="f-name" value="${esc(d.name||'')}" placeholder="e.g. Approve Transactions"/></div>
-        <div class="form-group"><label class="form-label">Key (dot notation)</label><input class="form-input" id="f-key" value="${esc(d.key||'')}" placeholder="e.g. txn.approve"/></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Category</label><select class="form-select" id="f-category">${catOpts}</select></div>
-        <div class="form-group"><label class="form-label">Danger Zone</label><select class="form-select" id="f-danger">${dnrOpts}</select></div>
-      </div>
-      <div class="form-group"><label class="form-label">Granted to Levels</label><div class="checkbox-grid" id="f-levels">${boxes}</div></div>`;
-  }
-
-  return `
-    <div class="modal-header">
-      <div class="modal-title">${title}</div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+  document.getElementById('modal-body').innerHTML=`
+    <div class="mh">
+      <div class="mt">⚙ Manage — <span style="color:var(--accent2)">${esc(role.name)}</span></div>
+      <button class="mc" onclick="closeModal()">✕</button>
     </div>
-    ${fields}
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" id="save-btn" onclick="saveRecord('${type}')">${editing?'Save Changes':'Create'}</button>
+
+    <div class="fg">
+      <label class="fl">Step 1 — Select modules for this role</label>
+      <div class="mac-grid">${cards}</div>
+    </div>
+
+    <div id="perm-wrap" style="${Object.keys(roleDraft.modulePerms).length?'':'display:none'}">
+      <label class="fl">Step 2 — Set CRUD permissions per module</label>
+      <div id="perm-editor"></div>
+    </div>
+
+    <div class="mf">
+      <button class="btn btn-g" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-p" onclick="saveRoleAssign()">Save &amp; Sync ☁</button>
     </div>`;
+
+  refreshPermEditor();
 }
 
-// ═══════════════════════════════════════
-// SAVE RECORD (CREATE / UPDATE)
-// ═══════════════════════════════════════
-async function saveRecord(type){
-  const g = id => { const el=document.getElementById(id); return el?el.value.trim():''; };
-  let item={};
-
-  if(type==='user'){
-    const name=g('f-name'), email=g('f-email');
-    if(!name||!email){ toast('Name and email are required.','error'); return; }
-    item={ name, email, role:g('f-role'), level:g('f-level'), status:g('f-status'),
-           joined: editingId ? db.users.users.find(u=>u.id===editingId)?.joined : new Date().toISOString().slice(0,10) };
-  } else if(type==='module'){
-    const name=g('f-name'), key=g('f-key');
-    if(!name||!key){ toast('Name and key are required.','error'); return; }
-    item={ name, key, category:g('f-category'), minLevel:g('f-minLevel'), status:g('f-status') };
-  } else if(type==='role'){
-    const name=g('f-name');
-    if(!name){ toast('Role name is required.','error'); return; }
-    item={ name, level:g('f-level'), desc:g('f-desc'), modules:g('f-modules')||'?', users:0, type:g('f-type') };
-  } else if(type==='permission'){
-    const name=g('f-name'), key=g('f-key');
-    if(!name||!key){ toast('Name and key are required.','error'); return; }
-    const levels = [...document.querySelectorAll('#f-levels input:checked')].map(c=>c.value);
-    item={ name, key, levels, category:g('f-category'), danger:g('f-danger')==='true' };
-  }
-
-  // disable button while saving
-  const btn = document.getElementById('save-btn');
-  if(btn){ btn.disabled=true; btn.textContent='Saving…'; }
-
-  if(type==='user'){
-    if(editingId){
-      const idx = db.users.users.findIndex(x=>x.id===editingId);
-      db.users.users[idx] = { ...db.users.users[idx], ...item };
-    } else {
-      item.id = db.users._meta.nextId++;
-      db.users.users.push(item);
-    }
-    closeModal();
-    renderSection('users');
-    await saveUsers();
+function toggleModInDraft(moduleId,card){
+  const cb=card.querySelector('input');
+  if(roleDraft.modulePerms[moduleId] instanceof Set){
+    delete roleDraft.modulePerms[moduleId];
+    card.classList.remove('sel'); if(cb) cb.checked=false;
   } else {
-    const col = type==='module'?'modules':type==='role'?'roles':'permissions';
-    if(editingId){
-      const idx = db.catalog[col].findIndex(x=>x.id===editingId);
-      db.catalog[col][idx] = { ...db.catalog[col][idx], ...item };
-    } else {
-      item.id = db.catalog._meta.nextId[col]++;
-      db.catalog[col].push(item);
-    }
-    closeModal();
-    renderSection(type==='module'?'modules':type==='role'?'roles':'permissions');
-    await saveCatalog();
+    roleDraft.modulePerms[moduleId]=new Set();
+    card.classList.add('sel'); if(cb) cb.checked=true;
   }
-
-  toast(`${cap(type)} ${editingId?'updated':'created'} — synced to cloud ☁`, 'success');
+  refreshPermEditor();
 }
 
-// ═══════════════════════════════════════
-// DELETE
-// ═══════════════════════════════════════
-function confirmDelete(type, id, name){
-  showConfirm(
-    `Delete <b>${esc(name)}</b>? This will sync to all devices.`,
-    async () => {
-      if(type==='user'){
-        db.users.users = db.users.users.filter(x=>x.id!==id);
-        renderSection('users');
-        await saveUsers();
-      } else {
-        const col = type==='module'?'modules':type==='role'?'roles':'permissions';
-        db.catalog[col] = db.catalog[col].filter(x=>x.id!==id);
-        renderSection(type==='module'?'modules':type==='role'?'roles':'permissions');
-        await saveCatalog();
-      }
-      toast(`${cap(type)} deleted — synced to cloud ☁`, 'success');
-    },
-    'Delete'
-  );
+function refreshPermEditor(){
+  const wrap=document.getElementById('perm-wrap');
+  const editor=document.getElementById('perm-editor');
+  if(!wrap||!editor) return;
+  const mids=Object.keys(roleDraft.modulePerms).map(Number);
+  if(!mids.length){ wrap.style.display='none'; return; }
+  wrap.style.display='';
+  editor.innerHTML=mids.map(mid=>{
+    const m=db.catalog.modules.find(x=>x.id===mid); if(!m) return '';
+    const ps=roleDraft.modulePerms[mid];
+    return `<div class="pe-module">
+      <div class="pe-head"><span class="pe-name">📦 ${esc(m.name)}</span><span style="font-size:11px;color:var(--text3)">toggle to grant</span></div>
+      <div class="pe-perms">${PERMS.map(p=>`<div class="pp ${ps.has(p)?'on '+p:''}" onclick="togglePerm(${mid},'${p}',this)">${p}</div>`).join('')}</div>
+    </div>`;
+  }).join('');
 }
 
-// ═══════════════════════════════════════
-// CONFIRM DIALOG
-// ═══════════════════════════════════════
-function showConfirm(msg, onOk, okLabel='Confirm'){
-  document.getElementById('confirm-msg-text').innerHTML = msg;
-  const btn = document.getElementById('confirm-ok-btn');
-  btn.textContent = okLabel;
-  btn.onclick = () => { closeConfirm(); onOk(); };
+function togglePerm(moduleId,perm,el){
+  const ps=roleDraft.modulePerms[moduleId]; if(!(ps instanceof Set)) return;
+  if(ps.has(perm)){ ps.delete(perm); el.classList.remove('on',perm); }
+  else { ps.add(perm); el.classList.add('on',perm); }
+}
+
+async function saveRoleAssign(){
+  const idx=db.catalog.roles.findIndex(r=>r.id===roleDraft.id); if(idx===-1) return;
+  const mp={};
+  Object.entries(roleDraft.modulePerms).forEach(([mid,ps])=>{ mp[Number(mid)]=[...ps]; });
+  db.catalog.roles[idx].modulePerms=mp;
+  closeModal();
+  renderSection('roles'); renderSection('modules'); renderSection('permissions');
+  await saveCatalog();
+  toast('Permissions saved ☁','success');
+}
+
+// ═══════════════════════════════════
+// CRUD FORMS
+// ═══════════════════════════════════
+function openModal(type){ editingType=type; editingId=null; document.getElementById('modal-body').innerHTML=buildForm(type,{},false); document.getElementById('main-modal').classList.add('open'); }
+function editRecord(type,id){
+  editingType=type; editingId=id;
+  let item; if(type==='user') item=db.users.users.find(x=>x.id===id); else item=db.catalog[type==='module'?'modules':'roles'].find(x=>x.id===id);
+  if(!item) return;
+  document.getElementById('modal-body').innerHTML=buildForm(type,item,true);
+  document.getElementById('main-modal').classList.add('open');
+}
+
+function buildForm(type,d={},editing){
+  const title=(editing?'Edit ':'Add ')+cap(type);
+  const stOpts=['active','inactive'].map(s=>`<option value="${s}"${d.status===s?' selected':''}>${s}</option>`).join('');
+  let fields='';
+  if(type==='role'){
+    fields=`<div class="fg"><label class="fl">Role Name</label><input class="fi" id="f-name" value="${esc(d.name||'')}" placeholder="e.g. Admin"/></div>
+      <div class="fg"><label class="fl">Description</label><input class="fi" id="f-desc" value="${esc(d.desc||'')}" placeholder="What this role can do"/></div>
+      ${!editing?`<div style="padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);font-size:12px;color:var(--text3)">💡 After creating, use <b style="color:var(--accent2)">⚙ Manage modules &amp; permissions</b> in the table to assign modules and set Full / View / Create / Edit / Delete access.</div>`:''}`;
+  } else if(type==='module'){
+    fields=`<div class="fr">
+      <div class="fg"><label class="fl">Module Name</label><input class="fi" id="f-name" value="${esc(d.name||'')}" placeholder="e.g. Invoicing"/></div>
+      <div class="fg"><label class="fl">Key</label><input class="fi" id="f-key" value="${esc(d.key||'')}" placeholder="e.g. invoices"/></div>
+    </div>
+    <div class="fg"><label class="fl">Status</label><select class="fs" id="f-status">${stOpts}</select></div>`;
+  } else if(type==='user'){
+    const roleOpts=(db.catalog?.roles||[]).map(r=>`<option value="${r.id}"${d.roleId===r.id?' selected':''}>${esc(r.name)}</option>`).join('');
+    fields=`<div class="fr">
+      <div class="fg"><label class="fl">Full Name</label><input class="fi" id="f-name" value="${esc(d.name||'')}" placeholder="e.g. Arjun Sharma"/></div>
+      <div class="fg"><label class="fl">Email</label><input class="fi" id="f-email" type="email" value="${esc(d.email||'')}" placeholder="user@company.io"/></div>
+    </div>
+    <div class="fr">
+      <div class="fg"><label class="fl">Role</label><select class="fs" id="f-role"><option value="">— Select role —</option>${roleOpts}</select></div>
+      <div class="fg"><label class="fl">Status</label><select class="fs" id="f-status">${stOpts}</select></div>
+    </div>`;
+  }
+  return `<div class="mh"><div class="mt">${title}</div><button class="mc" onclick="closeModal()">✕</button></div>${fields}<div class="mf"><button class="btn btn-g" onclick="closeModal()">Cancel</button><button class="btn btn-p" id="save-btn" onclick="saveRecord('${type}')">${editing?'Save Changes':'Create'}</button></div>`;
+}
+
+async function saveRecord(type){
+  const g=id=>{ const el=document.getElementById(id); return el?el.value.trim():''; };
+  let item={};
+  if(type==='role'){
+    const name=g('f-name'); if(!name){ toast('Role name required.','error'); return; }
+    item={ name, desc:g('f-desc'), modulePerms:{} };
+  } else if(type==='module'){
+    const name=g('f-name'),key=g('f-key'); if(!name||!key){ toast('Name and key required.','error'); return; }
+    item={ name, key, status:g('f-status')||'active' };
+  } else if(type==='user'){
+    const name=g('f-name'),email=g('f-email'); if(!name||!email){ toast('Name and email required.','error'); return; }
+    const roleId=g('f-role')?Number(g('f-role')):null;
+    item={ name, email, roleId, status:g('f-status')||'active', joined:editingId?db.users.users.find(u=>u.id===editingId)?.joined:new Date().toISOString().slice(0,10) };
+  }
+  const btn=document.getElementById('save-btn'); if(btn){ btn.disabled=true; btn.textContent='Saving…'; }
+  if(type==='user'){
+    if(editingId){ const idx=db.users.users.findIndex(x=>x.id===editingId); db.users.users[idx]={...db.users.users[idx],...item}; }
+    else { item.id=db.users._meta.nextId++; db.users.users.push(item); }
+    closeModal(); renderSection('users'); await saveUsers();
+  } else {
+    const col=type==='module'?'modules':'roles';
+    if(editingId){ const idx=db.catalog[col].findIndex(x=>x.id===editingId); db.catalog[col][idx]={...db.catalog[col][idx],...item}; }
+    else { item.id=db.catalog._meta.nextId[col]++; db.catalog[col].push(item); }
+    closeModal(); renderSection(type==='module'?'modules':'roles'); renderSection('permissions'); await saveCatalog();
+  }
+  toast(`${cap(type)} ${editingId?'updated':'created'} ☁`,'success');
+}
+
+// ── Delete ──
+function confirmDelete(type,id,name){
+  document.getElementById('confirm-txt').innerHTML=`Delete <b>${esc(name)}</b>? This cannot be undone.`;
+  document.getElementById('confirm-btn').onclick=()=>{ doDelete(type,id); closeConfirm(); };
   document.getElementById('confirm-modal').classList.add('open');
 }
+async function doDelete(type,id){
+  if(type==='user'){
+    db.users.users=db.users.users.filter(x=>x.id!==id);
+    renderSection('users'); await saveUsers();
+  } else if(type==='module'){
+    db.catalog.modules=db.catalog.modules.filter(x=>x.id!==id);
+    db.catalog.roles.forEach(r=>{ delete r.modulePerms[id]; });
+    renderSection('modules'); renderSection('roles'); renderSection('permissions'); await saveCatalog();
+  } else if(type==='role'){
+    db.catalog.roles=db.catalog.roles.filter(x=>x.id!==id);
+    db.users.users.forEach(u=>{ if(u.roleId===id) u.roleId=null; });
+    renderSection('roles'); renderSection('users'); renderSection('permissions');
+    await Promise.all([saveCatalog(),saveUsers()]);
+  }
+  toast('Deleted ☁','success');
+}
 function closeConfirm(){ document.getElementById('confirm-modal').classList.remove('open'); }
+function closeModal(){ document.getElementById('main-modal').classList.remove('open'); editingId=null; editingType=null; roleDraft={}; }
 
-// ═══════════════════════════════════════
-// MODAL CLOSE
-// ═══════════════════════════════════════
-function closeModal(){
-  document.getElementById('main-modal').classList.remove('open');
-  editingId=null; editingType=null;
+// ── Toast ──
+function toast(msg,type='info'){
+  const el=document.createElement('div'); el.className=`toast t-${type==='success'?'ok':type==='error'?'er':'in'}`;
+  el.innerHTML=`<span>${{success:'✅',error:'❌',info:'ℹ️'}[type]}</span><span>${msg}</span>`;
+  document.getElementById('tc').appendChild(el); setTimeout(()=>el.remove(),3200);
 }
 
-// ═══════════════════════════════════════
-// TOAST
-// ═══════════════════════════════════════
-function toast(msg, type='info'){
-  const el = document.createElement('div');
-  el.className = `toast toast-${type}`;
-  el.innerHTML = `<span>${{success:'✅',error:'❌',info:'ℹ️'}[type]||'ℹ️'}</span><span>${msg}</span>`;
-  document.getElementById('toast-c').appendChild(el);
-  setTimeout(()=>el.remove(), 3200);
-}
-
-// ═══════════════════════════════════════
-// BOOT
-// ═══════════════════════════════════════
 boot();
 </script>
 </body>

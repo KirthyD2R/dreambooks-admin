@@ -739,17 +739,17 @@ function exportMatrixCSV(){
           i === 0 ? (r.desc||'') : '',
           m?.name || '',
           m?.key  || '',
-          ps.has('Full')   ? '✓' : '',
-          ps.has('View')   ? '✓' : '',
-          ps.has('Create') ? '✓' : '',
-          ps.has('Edit')   ? '✓' : '',
-          ps.has('Delete') ? '✓' : ''
+          ps.has('Full')   ? 'TRUE' : '',
+          ps.has('View')   ? 'TRUE' : '',
+          ps.has('Create') ? 'TRUE' : '',
+          ps.has('Edit')   ? 'TRUE' : '',
+          ps.has('Delete') ? 'TRUE' : ''
         ]);
       });
     }
   });
 
-  dlFile(toCSV(rows), 'dreambooks_matrix_export.csv', 'text/csv');
+  dlFile('\uFEFF' + toCSV(rows), 'dreambooks_matrix_export.csv', 'text/csv;charset=utf-8;');
   toast('matrix_export.csv downloaded ✓', 'success');
 }
 
